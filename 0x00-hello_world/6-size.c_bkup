@@ -1,0 +1,40 @@
+/* data type and their sizes */
+#include <stdio.h>
+ 
+/* main function */
+int main(void)
+{
+  /* declare and initialize variables */
+  int p = 4; /* positive integer data type */
+  short int q = -120; /* variation */
+  unsigned short int r = 121; /* variation */
+  float s = 21.566578; /* float data type */
+  char t = 'r'; /* char data type */
+  long u = 5678; /* long positive integer data type */
+  unsigned long v = 5678; /* variation */
+  long w = -5678; /* -ve long integer data type */
+  int x = -171; /* -ve integer data type */
+  short y = -71; /* short -ve integer data type */
+  unsigned short z = 99; /* variation */
+  double a = 88.12345; /* double float data type */
+  float b = -3.245823; /* float data type */
+  char Title[50] = "The Making of the Casino Royale";
+ 
+  printf("\nSize of an int: %d byte(s)", p, sizeof(p));
+  printf("\nSize of a char: %d byte(s)",  sizeof(t));
+  printf("\n2. \"short\" int sample: \t %d, the data size: %d bytes", q, sizeof(q));
+  printf("\n3. \"unsigned short int\" sample: %d, the data size: %d bytes", r, sizeof(r));
+  printf("\n4. \"float\" sample: \t\t %.7f, the data size: %d bytes", s, sizeof(s));
+  printf("\n5. \"char\" sample: \t\t %c, the data size: %d byte", t, sizeof(t));
+  printf("\n6. \"long\" sample: \t\t %d, the data size: %d bytes", u, sizeof(u));
+  printf("\n7. \"unsigned long\" sample: \t %d, the data size: %d bytes", v, sizeof(v));
+  printf("\n8. negative \"long\" sample: \t %d, the data size: %d bytes", w, sizeof(w));
+  printf("\n9. negative \"int\" sample: \t %d, the data size: %d bytes", x, sizeof(x));
+  printf("\n10. negative \"short\" sample: \t %d, the data size: %d bytes", y, sizeof(y));
+  printf("\n11. unsigned \"short\" sample: \t %d, the data size: %d bytes", z, sizeof(z));
+  printf("\n12. \"double\" sample: \t\t %.4f, the data size: %d bytes", a, sizeof(a));
+  printf("\n13. negative \"float\" sample: \t %.5f, the data size: %d bytes", b, sizeof(b));
+  printf("\n14. The NULL terminated string data size: %d bytes\n", sizeof(Title));
+ 
+  return 0;
+}
