@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(void)
+{
+  char i;
+
+  for(i = 'a'; i <= 'z'; i++)
+    putchar(i);
+
+  putchar('\n'); // put a newline at the end to make it pretty
+
+  return 0;
+}

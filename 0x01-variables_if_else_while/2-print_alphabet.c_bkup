@@ -1,0 +1,16 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * main - evaluates and prints  a random number in certain ranges
+ * 3 ranges 
+ * Return: 0
+ */
+
+int main(void)
+{
+  char a;
+  for(a='a'; a <= 'z'; a++) printf("%c", a);
+
+  return (0);
+}
