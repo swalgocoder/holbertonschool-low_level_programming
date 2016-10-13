@@ -1,28 +1,25 @@
 #include <stdio.h>
-/*
- *print the alphabet using only putchar
- */
 /**
- *main - program's entry point
- *lower case, upper case alphabet, putchar 
+ *main - program starts, evaluates and prints
+ *lower case, upper case alphabet, putchar
  *Return: 0
  */
-int main(void)
-{
-  char c = 'a';
+	int main(void)
+	{
+	char l = 'a';
 
-  while (c <= 'z')
-    {
-      putchar(c);
-      c++;
-    }
-  c = 'A';
-  while (c <= 'Z')
-    {
-      putchar(c);
-      c++;
-    }
-  putchar('\n');
+	while (l <= 'z')
+	{
+	putchar(l);
+	l++;
+	}
+	l = 'A';
+	while (l <= 'Z')
+	{
+	putchar(l);
+	l++;
+	}
+	putchar('\n');
 
-  return (0);
-}
+	return (0);
+	}
