@@ -6,8 +6,6 @@
  * or negative
  * Return: 0
  */
-
-
 int main(void)
 {
   int n;
@@ -24,5 +22,4 @@ int main(void)
     printf("is zero\n");
 
   return (0);
-
 }
