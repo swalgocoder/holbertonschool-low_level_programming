@@ -1,10 +1,15 @@
 #include <stdio.h>
+/*
+ *after using puts in 4-..., see here use of printf
+ */
 
-int main()
+/**
+ *main - entry point
+ *prints a string and new line using printf
+ *Return: 0
+ */
+int main(void)
 {
-    char str[80] = "with proper grammar, but the outcome is a piece of art,";
- 
-    printf("%s\n", str);
- 
-    return 0;
+	printf("with proper grammar, but the outcome is a piece of art,\n");
+	return (0);
 }
