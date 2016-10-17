@@ -1,0 +1,11 @@
+#include <stdio.h>
+/**
+ * main - program starts, evaluates and prints all numbers from 0 to 99
+ *
+ * Return: Void
+ */
+int main(void)
+	{
+	printf("Holberton"\n);
+	return (0);
+	}
