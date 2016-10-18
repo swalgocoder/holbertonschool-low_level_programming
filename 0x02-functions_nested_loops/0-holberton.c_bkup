@@ -1,12 +1,11 @@
-#include "holberton.h"
 #include <stdio.h>
 /**
- * main - program entry point
- * Description: You are not allowed to include standard libraries.
- *  _putchar(int char) writes a character.
-  * separated by a comma and space
+ * int _putchar(int char) writes a character.
+ ** main - program starts, evaluates and prints a string
+ * separated by a comma and space
  * Return: Returns 0
  */
+	int _putchar(char c);
 	int main(void)
 	{
 	_putchar('H');
