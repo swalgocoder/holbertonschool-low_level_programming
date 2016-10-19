@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * add - Add two integers
  * @x: - int type number
@@ -8,5 +7,9 @@
  */
 	int add(int x, int y)
 	{
-	return (x + y);
+	int sum;
+
+	sum = x + y;
+
+	return (sum);
 	}
