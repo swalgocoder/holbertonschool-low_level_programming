@@ -32,9 +32,10 @@
 				if (y == 9)
 				{
 				_putchar('\n');
-			}
-		}
+				}
 
-	_putchar(',');
-	_putchar(' ');
-	}	 
+				_putchar(',');
+				_putchar(' ');
+			}	 
+		}
+	}
