@@ -6,9 +6,9 @@
 
 	void times_table(void)
 	{
-	int x = 0 ; /* column array */
-	int y; /* row array */
-	int z; /* value of x*y */
+	int x = 0;
+	int y;
+	int z;
 
 		while  (x <= 9)
 		{
@@ -17,24 +17,30 @@
 			{
 			z = x * y;
 
-			if (z < 10)
-			{
-			_putchar(' ');
-			_putchar(z + '0');
-			}
-			if (z >= 10)
-			{
-			_putchar(z / 10 + '0');
-			_putchar(z % 10 + '0');
-			}
-			if (y == 9)
-			{
-			_putchar('\n');
-			}
-			else
-			{
-			_putchar(',');
-			_putchar(' ');
+				if (z < 10)
+				{
+					if (y > 0)
+					{
+					_putchar(' ');
+					}
+				_putchar(z + '0');
+				}
+
+				if (z >= 10)
+				{
+				_putchar(z / 10 + '0');
+				_putchar(z % 10 + '0');
+				}
+
+				if (y == 9)
+				{
+				_putchar('\n');
+				}
+
+				else
+				{
+				_putchar(',');
+				_putchar(' ');
 			}
 			y++;
 		}
