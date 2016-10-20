@@ -1,9 +1,8 @@
 #include "holberton.h"
-
 /**
- * print_line - print _
- * @n: first operand
- * Return: unknown
+ * print_line - draws a straight line  _
+ * @n: the number of times the character _ printed, argument
+ * Return: void
  */
 
 void print_line(int n)
