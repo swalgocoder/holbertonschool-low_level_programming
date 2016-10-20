@@ -1,9 +1,8 @@
 #include "holberton.h"
-
 /**
- * print_diagonal - printo ut a diagonal with '\'
- * @n: first operand
- * Return: unknown
+ * print_diagonal - a diagonal with '\'
+ * @n: the number of times the character \ printed
+ * Return: void
  */
 
 void print_diagonal(int n)
