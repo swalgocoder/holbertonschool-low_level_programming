@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+#include "holberton.h"
+
+/**
+ * _strlen - calculates the length of the string
+ * Return  - returns the number of bytes in the string
+ */
+
+int _strlen(str)
+
+{
+
+	char str[50];
+	
+	_strlen(str);
+
+}

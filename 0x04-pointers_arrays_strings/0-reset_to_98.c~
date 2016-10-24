@@ -1,0 +1,10 @@
+/**
+ * reset_to_98 - resets the value at pointer n to 98
+ * @n: first operand
+ * Return: the value at pointer n
+ */
+
+void reset_to_98(int *n)
+{
+	*n = 98;
+}
