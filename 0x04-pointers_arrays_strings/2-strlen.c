@@ -3,9 +3,9 @@
 #include "holberton.h"
 
 /**
- * _strlen - calculates the length of the string
+ * _strlen - argument: pointer to string
  * @s: parameter
- * Return: returns the number of bytes in the string
+ * Return: returns length of string
  */
 
 int _strlen(char *s)
@@ -13,8 +13,8 @@ int _strlen(char *s)
 {
 
 	int c = 0;
-	
-	while (*(s+c) != 0)
+
+	while (*(s + c) != 0)
 		c++;
 	return (c);
 }
