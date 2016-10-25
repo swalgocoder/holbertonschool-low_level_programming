@@ -20,14 +20,15 @@ void print_rev(char *s)
 	{
 	array[i] = *s;
 	i++;
-        s++;
+	s++;
 	}
+
+	i = i - 1;
 
 	while (i >= 0)
 	{
-	  _putchar(array[i]);
-	  i--;
-
+	_putchar(array[i]);
+	i--;
 	}
 	_putchar('\n');
-}	
+}
