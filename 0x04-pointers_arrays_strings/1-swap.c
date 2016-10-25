@@ -2,9 +2,10 @@
 #include <stdio.h>
 
 /**
- * swap_int -  takes  pointers to int as parameter and updates the value it points to 
- * @n: parameter
- * Return: the value at the address of n it points to
+ * swap_int -  takes  pointers to int as parameter & dereference
+ * @a: parameter
+ * @b: parameter
+ * Return: dereference
  */
 
 void swap_int(int *a, int *b)
