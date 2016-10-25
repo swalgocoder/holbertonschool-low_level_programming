@@ -1,0 +1,33 @@
+#include "holberton.h"
+#include <stdio.h>
+#include <string.h>
+
+/**
+ * rev_string - takes a pointer to char, prints a string, in reverse.
+ * @s: first parameter
+ * Return: reversed
+ */
+
+void rev_string(char *s)
+{
+	int i;
+	char array[150];
+
+	i = 0;
+
+
+	while (*s != 0)
+	{
+	array[i] = *s;
+	i++;
+	s++;
+	}
+
+	i = i - 1;
+
+	while (i >= 0)
+	{
+	putchar(array[i]);
+	i--;
+	}
+}

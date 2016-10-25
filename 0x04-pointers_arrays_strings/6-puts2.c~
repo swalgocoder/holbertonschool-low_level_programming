@@ -1,0 +1,23 @@
+#include "holberton.h"
+#include <stdio.h>
+
+/**
+ * puts2 - input a pointer to string & prints selectively
+ * @str: string 
+ * Return: void
+ */
+
+void puts2(char *str)
+{
+	int i;
+	
+	i = 0;
+
+	while (*str != 0)
+	{	
+	putchar(str[i]);
+	str  = str + 2;
+        i++;
+	}
+	putchar('\n');
+}
