@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * _puts - prints a string followed by a new line.
+ * _puts - argument: pointer to string to be printed
  * @str: first parameter
  * Return: string
  */
@@ -11,10 +11,10 @@
 
 void _puts(char *str)
 {
-	while (*str != 0)
+	while (*str >= '\0')
 	{
 	  _putchar(*str);
 	  str++;
 	}
 	_putchar('\n');
-}	
+}
