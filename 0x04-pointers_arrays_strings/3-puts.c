@@ -1,7 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <string.h>
-
 /**
  * _puts - argument: pointer to string to be printed
  * @str: first parameter
@@ -11,7 +8,7 @@
 
 void _puts(char *str)
 {
-	while (*str >= '\0')
+	while (*str != '\0')
 	{
 	  _putchar(*str);
 	  str++;
