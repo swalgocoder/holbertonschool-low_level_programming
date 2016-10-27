@@ -2,7 +2,7 @@
 
 /**
  * _strcat - appends src to dest strings
- * @dest: dest to be appended 
+ * @dest: dest to be appended
  * @src: append src to des
  * Return: pointer to dest
  */
@@ -13,7 +13,7 @@ char *_strcat(char *dest, char *src)
 
 	i = 0;
 
-	while ( dest[i] != '\0')
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
