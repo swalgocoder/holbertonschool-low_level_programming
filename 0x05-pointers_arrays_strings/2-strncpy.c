@@ -2,7 +2,7 @@
 
 /**
  * _strncpy - copies a string
- * @dest: dest to be appended 
+ * @dest: dest to be appended
  * @src: append src to dest
  * @n:  at most n elements from src
  * Return: pointer to dest
@@ -25,10 +25,9 @@ char *_strncpy(char *dest, char *src, int n)
 			dest[i] = '0';
 			break;
 		}
-	 
+
 		i++;
 		src_i++;
-		
 	}
 
 	while (i != n)
