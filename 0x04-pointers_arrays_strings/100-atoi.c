@@ -1,8 +1,7 @@
 #include "holberton.h"
 /**
- * _atoi - converts ascii to an integer
- *
- * @s: the input 
+ * _atoi - converts string (ascci) to an integer
+  * @s: the input
  * Return: the converted integer
  */
 int _atoi(char *s)
