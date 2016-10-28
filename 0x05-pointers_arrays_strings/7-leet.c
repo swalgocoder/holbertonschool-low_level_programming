@@ -1,11 +1,9 @@
 #include "holberton.h"
-
 /**
  * leet - convert a string 
  * @c: string
- * Return: converted string `c`
+ * Return: converted string
  */
-
 char *leet(char *c)
 {
 	int i;
@@ -23,6 +21,5 @@ char *leet(char *c)
 		if (c[i] == 'l' || c[i] == 'L')
 			c[i] = '1';
 	}
-
 	return (c);
 }
