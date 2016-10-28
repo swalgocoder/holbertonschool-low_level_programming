@@ -6,30 +6,20 @@
  *
  * Return: char pointer
  */
-
 char *cap_string(char *s)
 {
-	int i, j;
-	char special_char[] = " \t\n,;.!?\"(){}";
+	int i = 0;
 
-	
-	for (i = 0; s[i] != '\0'; i++)
+	while (s[i])
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
-		{
-			if (i == 0)
-			{
-				s[0] -= ' ';
-			}
-    }
-      for (j = 0; spec_array[j] != '\0'; j++)
-			{
-				if (s[i - 1] == spec_array[j])
-				{
-					s[i] -= ' ';
-				}
-			}
+		if ((s[i] >= 'a' && s[i] <= 'z')
+		    && (s[i - 1] == ',' || s[i - 1] == ';' || s[i - 1] == '.'
+			|| s[i - 1] == '!' || s[i - 1] == '?' || s[i - 1] == '"'
+			|| s[i - 1] == '(' || s[i - 1] == ')' || s[i - 1] == '{'
+			|| s[i - 1] == '}' || s[i - 1] == ' ' || s[i - 1] == '\n'
+			|| s[i - 1] == '\t' || s[i - 1] == '\0'))
+			s[i] = s[i] - 32;
+		i++;
 	}
-
-  return (s);
+	return (s);
 }
