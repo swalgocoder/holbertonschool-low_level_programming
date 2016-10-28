@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * leet - convert a string 
+ * leet - convert a string
  * @c: string
  * Return: converted string
  */
