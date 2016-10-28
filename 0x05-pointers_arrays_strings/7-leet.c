@@ -24,5 +24,5 @@ char *leet(char *c)
 			c[i] = '1';
 	}
 
-	return (s);
+	return (c);
 }
