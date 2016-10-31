@@ -12,25 +12,23 @@ char *_strchr(char *s, char c)
 	{
 
 	int i;
+	int j;
 
-	i = 0;
 
-	while (s[i] != '\0')
+	for  (i  = 0; s[i] != '\0'; i++)
 		{
-
-		if (s[i] != c)
-			{
-			s++;
-			i++;
-			}
-		else
-			{
-			return (s + i);
-			}
 		}
-	if (s[i] == c)
+
+	for  (j = 0; j <= i; j++)
 		{
-		return (s + i);
+		if (*(s + j) == c)
+		return (s + j);
+		}
+
+
+	if (*s == '\0')
+		{
+		return (0);
 		}
 	else
 		{
