@@ -20,17 +20,17 @@ char *_strchr(char *s, char c)
 
 		if (s[i] != c)
 			{
-			s++;		
+			s++;
 			i++;
 			}
 		else
-			{			
-			return (s); 
+			{
+			return (s + i);
 			}
 		}
 	if (s[i] == c)
-		{     
-		return (s);
+		{
+		return (s + i);
 		}
 	else
 		{
