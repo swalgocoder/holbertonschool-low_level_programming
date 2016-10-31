@@ -1,10 +1,11 @@
 #include "holberton.h"
 
-/** _strchr - 1st occurrence of the character c in the string s
+/**
+ *  _strchr - 1st occurrence of the character c in the string s
  * @s: pointer to string
  * @c: the character c
  *
- * return:  a pointer to 1st occurrence of the character c in the string
+ * Return:  a pointer to 1st occurrence of the character c in the string
  */
 
 char *_strchr(char *s, char c)
@@ -22,6 +23,6 @@ char *_strchr(char *s, char c)
 		i++;
 		}
 
-	return(0);
+	return (0);
 
 	}
