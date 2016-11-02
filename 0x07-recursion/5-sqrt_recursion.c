@@ -1,36 +1,32 @@
 #include "holberton.h"
 
 /**
- *_sqrt_recursion - sqrt root
+ * rooter - function recursion
  * @n: number
- * Return: -1 if not root found
+ * @i: root value
+ * Return: value
  */
+int rooter(int n, int i)
+{
+	if (i * i == n)
+		return (i);
+	if (i * i < n)
+		return (rooter(n, i + 1));
+	return (-1);
+}
 
+/**
+ * _sqrt_recursion - sqrt of number
+ * @n: number
+ * Return: root or  -1 if none
+ */
 int _sqrt_recursion(int n)
 {
 	if (n == 0)
 		return (0);
-	else if (n == 1)
+	if (n == 1)
 		return (1);
-	else if (n < 0)
+	if (n < 0)
 		return (-1);
-	else
-		return (rooter(n, 1));
-}
-
-/**
- * rooter - root
- * @n: number
- * @i: counter
- * Return: -1;
- */
-
-int rooter(int n, int i)
-{
-	if (n == (i * i))
-		return (i);
-	else if (n > (i * i))
-		return (rooter(n, i + 1));
-	else
-		return (-1);
+	return (rooter(n, 1));
 }
