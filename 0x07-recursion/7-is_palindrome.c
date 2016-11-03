@@ -37,10 +37,10 @@ int check_pal(char *str, int len_s)
 
 int is_palindrome(char *s)
 {
-	int len;
+	int len_str;
 
-	len = _strlen_recursion(s);
-	if (len <= 1)
+	len_str = _strlen_recursion(s);
+	if (len_str <= 1)
 		return (1);
-	return (pal_check(s, len));
+	return (check_pal(s, len_str));
 }
