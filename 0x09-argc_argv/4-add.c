@@ -5,23 +5,23 @@
 
 /**
  * mydigit - checks input
- * @argc: argument count
+ * @argc: number of argument
  * @i: number of arguments
- * @j: number of element of argument
+ * @j: # of element of argument
  * @argv: pointer to argument matrix
- * Return: 0 on success
+ * Return: 1 for failure else 0
  */
 
 int mydigit(int argc, int i, unsigned int j, char *argv[])
 {
 	for (i = 1; i <= argc; i++)
-	{
-		for (j = 0; argv[i] != '\0' && j < strlen(argv[i]); j++)
 		{
-		if (isdigit(argv[i][j]) == 0)
-		return (1);
+		for (j = 0; argv[i] != '\0' && j < strlen(argv[i]); j++)
+			{
+			if (isdigit(argv[i][j]) == 0)
+			return (1);
+			}
 		}
-	}
 	return (0);
 }
 
