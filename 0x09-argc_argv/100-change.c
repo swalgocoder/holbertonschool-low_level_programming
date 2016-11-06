@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	int sum, count;
 
 	count = 0;
-	if (argc != 2)
+	while (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
