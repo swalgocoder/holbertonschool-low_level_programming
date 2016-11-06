@@ -20,7 +20,7 @@ int ck_input(int argc, int i, unsigned int j, char *argv[])
 		{
 			if (!isdigit(*(argv[i] + j)))
 			return (1);
-			j++;
+			(argv[i] + j)++;
 		}
 		i++;
 	}
