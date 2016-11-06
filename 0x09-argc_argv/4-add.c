@@ -32,7 +32,7 @@ int mydigit(int argc, int i, unsigned int j, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	long sum;
+	int sum;
 	int i;
 
 	sum = 0;
