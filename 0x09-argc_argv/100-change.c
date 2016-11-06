@@ -14,13 +14,13 @@ int main(int argc, char **argv)
 	int sum, count;
 
 	count = 0;
-	if (argc != 2)
+	while (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 	sum = atoi(argv[1]);
-	if (sum < 0)
+	while (sum < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
