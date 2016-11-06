@@ -36,17 +36,17 @@ int main(int argc, char *argv[])
 {
 	int i;
 	lnt sum;
-
-	for (i = 1, sum = 0; i < argc; i++)
+	
+	sum = 0;
+	
+	if (mydigit(argc, 1, 0, argv) == 1)
 	{
-		if (mydigit(argc, 1, 0, argv) == 1)
-		{
 		printf("Error\n");
 		return (1);
-		}
-	
-		sum += atoi(argv[i]);
 	}
+	
+	for (i = 1; i < argc; i++)
+		sum += atoi(argv[i]);
 	
 	printf("%d\n", sum);
 	return (0);
