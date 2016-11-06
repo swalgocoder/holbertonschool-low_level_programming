@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include "holberton.h"
 /**
  * _mydigit - checks if input starts with a number
  * @argc: argument count
