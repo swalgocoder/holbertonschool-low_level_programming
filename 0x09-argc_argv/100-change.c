@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
 	count = 0;
 
-	while (argc != 2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
