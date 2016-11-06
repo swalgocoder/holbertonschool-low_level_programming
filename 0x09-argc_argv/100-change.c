@@ -20,36 +20,44 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
+
 	sum = atoi(argv[1]);
+
 	while (sum < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
 	}
+
 	if (sum % 25 >= 0)
 	{
 		count += sum / 25;
 		sum = sum % 25;
 	}
+
 	if (sum % 10 >= 0)
 	{
 		count += sum / 10;
 		sum = sum % 10;
 	}
+
 	if (sum % 5 >= 0)
 	{
 		count += sum / 5;
 		sum = sum % 5;
 	}
+
 	if (sum % 2 >= 0)
 	{
 		count += sum / 2;
 		sum = sum % 2;
 	}
+
 	if (sum % 1 >= 0)
 	{
 		count += sum / 1;
 	}
-	printf("%d\n", count);
-	return (0);
+
+printf("%d\n", count);
+return (0);
 }
