@@ -26,8 +26,8 @@ int main(int argc, char **argv)
 		return (0);
 	}
 
-while ( sum > 0)
-{
+	while ( sum > 0)
+	{
 
 	if (sum % 25 >= 0)
 	{
@@ -54,7 +54,7 @@ while ( sum > 0)
 		count += sum / 1;
 	}
 
-}
+	}
 	printf("%d\n", count);
 	return (0);
 
