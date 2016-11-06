@@ -6,10 +6,10 @@
 /**
  * _mydigit - checks if input starts with a number
  * @argc: argument count
- * @i: number of arguments 
+ * @i: number of arguments
  * @j: number of element in each argument
  * @argv: argument matrix
- * Return: 0 on success, 1 on failure
+ * Return: 0
  */
 int _mydigit(int argc, int i, unsigned int j, char *argv[])
 {
@@ -22,8 +22,8 @@ int _mydigit(int argc, int i, unsigned int j, char *argv[])
 /**
  * main - adds all arguments together if they are digits.
  * @argc: argument count only accepts ints separated by spaces.
- * @argv: argument vector
- * Return: 0 on success, 1 on failure
+ * @argv: argument matrix
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
