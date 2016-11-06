@@ -1,21 +1,11 @@
-#include "holberton.h"
+#include <unistd.h>
 /**
- * _strcpy - copies and returns a string
- *
- * @dest: destination string, output
- * @src: string to be copied
- *
- * Return: dest
+ * _strcpy - function that copies the string pointed to by src
+ * @dest: dest parameter
+ * @src: src paramter
+ * Return: dest char
  */
-
 char *_strcpy(char *dest, char *src)
 {
-	int n;
-
-	n = 0;
-	while ((dest[n] = src[n]) != '\0')
-	{
-		n++;
-	}
 	return (dest);
 }
