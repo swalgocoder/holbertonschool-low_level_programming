@@ -15,10 +15,12 @@ int ck_input(int argc, int i, unsigned int j, char *argv[])
 	i = 1;
 	while (i <= argc)
 	{
-		for (j = 0; argv[i] != '\0' && j < strlen(argv[i]); j++)
+		j = 0;
+		while (argv[i] != '\0' && j < strlen(argv[i]))
 		{
 			if (isdigit(argv[i][j]) == 0)
 			return (1);
+			j++;
 		}
 		i++;
 	}
