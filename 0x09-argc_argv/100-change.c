@@ -22,7 +22,7 @@ n = 5;
   
 count = 0;
 
-while (argc != 2)
+if (argc != 2)
 	{
 	printf("Error\n");
 	return (1);
@@ -30,7 +30,7 @@ while (argc != 2)
 
 sum = atoi(argv[1]);
 
-while (sum < 0)
+if (sum < 0)
 {
 	printf("%d\n", 0);
 	return (0);
