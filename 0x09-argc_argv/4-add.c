@@ -41,11 +41,10 @@ int main(int argc, char *argv[])
 	}
 	
 	i = 1;
-	
 	while (i < argc)
 	{
-		sum += atoi(argv[i]);
-		i++;
+	sum += atoi(argv[i]);
+	i++;
 	}
 	
 	printf("%d\n", sum);
