@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	if (sum % 25 >= 0)
 	{
 		count += sum / 25;
-		sum = sum % 25;
+		sum %= 25;
 	}
 	if (sum % 10 >= 0)
 	{
@@ -54,8 +54,7 @@ int main(int argc, char **argv)
 		count += sum / 1;
 	}
 
-
-	printf("%d\n", count);
-	return (0);
+printf("%d\n", count);
+return (0);
 
 }
