@@ -11,7 +11,7 @@
 
 int main(int argc, char **argv)
 {
-	int sum, count;
+	int sum, count, q, d, n, 2p, 1p;
 
 	count = 0;
 	if (argc != 2)
@@ -25,29 +25,29 @@ int main(int argc, char **argv)
 		printf("%d\n", 0);
 		return (0);
 	}
-	if (sum % 25 >= 0)
+	if (sum % q >= 0)
 	{
-		count += sum / 25;
-		sum = sum % 25;
+		count += sum / q;
+		sum = sum % q;
 	}
-	if (sum % 10 >= 0)
+	if (sum % d >= 0)
 	{
-		count += sum / 10;
-		sum = sum % 10;
+		count += sum / d;
+		sum = sum % d;
 	}
-	if (sum % 5 >= 0)
+	if (sum % n >= 0)
 	{
-		count += sum / 5;
-		sum = sum % 5;
+		count += sum / n;
+		sum = sum % n;
 	}
-	if (sum % 2 >= 0)
+	if (sum % 2p >= 0)
 	{
-		count += sum / 2;
-		sum = sum % 2;
+		count += sum / 2p;
+		sum = sum % 2p;
 	}
-	if (sum % 1 >= 0)
+	if (sum % 1p >= 0)
 	{
-		count += sum / 1;
+		count += sum / 1p;
 	}
 	printf("%d\n", count);
 	return (0);
