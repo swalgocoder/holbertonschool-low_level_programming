@@ -10,7 +10,7 @@
  * @argv: argument matrix
  * Return: 0 on success
  */
-int _mydigit(int argc, int i, unsigned int j, char *argv[])
+int mydigit(int argc, int i, unsigned int j, char *argv[])
 {
 	for (i = 1; i <= argc; i++)
 	{
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
 	result = 0;
 
-	if (_mydigit(argc, 1, 0, argv) == 1)
+	if (mydigit(argc, 1, 0, argv) == 1)
 	{
 		printf("Error\n");
 		return (1);
