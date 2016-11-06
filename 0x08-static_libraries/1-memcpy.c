@@ -1,18 +1,13 @@
-#include "holberton.h"
+#include <unistd.h>
 /**
- * _memcpy - copies bytes from src to dest
- * @src: the source
- * @dest: where the bytes will be overwritten
- * @n: number of bytes to copy
- * Return: pointer to beginning of memory space
+ * _memcpy - copies n bytes form the memory area src
+ * to memory area dest
+ * @src: source code to copy
+ * @dest: paramater for destination to  copy to
+ * @n: how many bytes to copy
+ * Return: dest;
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int i;
-
-	for (i = 0; i < n; i++)
-	{
-		*(dest + i) = *(src + i);
-	}
 	return (dest);
 }
