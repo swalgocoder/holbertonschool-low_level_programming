@@ -1,21 +1,25 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 /**
  * _mydigit - checks if input starts with a number
  * @argc: argument count
  * @i: number of arguments
  * @j: number of element in each argument
  * @argv: argument matrix
- * Return: 0
+ * Return: 0 on success
  */
 int _mydigit(int argc, int i, unsigned int j, char *argv[])
 {
 	for (i = 1; i <= argc; i++)
+	{
 		for (j = 0; argv[i] != '\0' && j < strlen(argv[i]); j++)
-			if (isdigit(argv[i][j]) == 0)
-				return (1);
+		{
+		if (isdigit(argv[i][j]) == 0)
+		return (1);
+		}
+	}
 	return (0);
 }
 /**
@@ -26,7 +30,8 @@ int _mydigit(int argc, int i, unsigned int j, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int result, i;
+	int result;
+	int i;
 
 	result = 0;
 	if (_mydigit(argc, 1, 0, argv) == 1)
