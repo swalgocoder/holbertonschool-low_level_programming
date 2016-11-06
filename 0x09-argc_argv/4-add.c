@@ -11,6 +11,7 @@
  * @argv: pointer to argument matrix
  * Return: 0 on success
  */
+
 int mydigit(int argc, int i, unsigned int j, char *argv[])
 {
 	for (i = 1; i <= argc; i++)
@@ -23,6 +24,7 @@ int mydigit(int argc, int i, unsigned int j, char *argv[])
 	}
 	return (0);
 }
+
 /**
  * main - adds all digits
  * @argc: number of argument
