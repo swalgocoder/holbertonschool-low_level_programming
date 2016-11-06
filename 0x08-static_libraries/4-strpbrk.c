@@ -1,28 +1,30 @@
 #include "holberton.h"
+
 /**
- * _strpbrk - strips... bark?
- *
- * @s: string to be searched
- * @accept: string to match
- * Return: pointer to match on success, NULL if failure
+ * _strpbrk - locates the first occurrence in the string s of any
+ * of the bytes in the string accept
+ * @s: for the char
+ * @accept: paramter for accept
+ * Return: pointer to the byte s
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	char *temp;
+	int i, t, j;
 
-	temp = accept;
-	while (*s != '\0')
+	i = 0;
+	while (s[i] != '\0')
 	{
-		while (*accept != '\0')
+		t = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (*s == *accept)
-				return (s);
-			accept++;
+			if (s[i] == accept[j])
+				t = 1;
 		}
-		accept = temp;
-		s++;
+		j = 0;
+		if (t == 1)
+			return (s + i);
+		i++;
 	}
-	if (*s == '\0')
-		return ('\0');
-	return (s);
+	return (0);
 }
