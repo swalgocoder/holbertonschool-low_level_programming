@@ -2,19 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-/**
- * main - adds positive numbers
- * @argc: number of argument
- * @argv: values of argument, numbers to add
- * Return: 0
- */
-
-
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
+#include "holberton.h"
 /**
  * _mydigit - checks if input starts with a number
  * @argc: argument count
@@ -47,6 +35,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+	
 	for (i = 1; i < argc; i++)
 		result += atoi(argv[i]);
 	printf("%d\n", result);
