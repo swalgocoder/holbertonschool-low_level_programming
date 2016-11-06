@@ -18,4 +18,4 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
-int _mydigit(int argc, int i, unsigned int j, char *argv[]);
+int mydigit(int argc, int i, unsigned int j, char *argv[]);
