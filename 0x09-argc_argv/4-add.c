@@ -26,7 +26,7 @@ int _mydigit(int argc, int i, unsigned int j, char *argv[])
  * main - adds all arguments together if they are digits.
  * @argc: argument count only accepts ints separated by spaces.
  * @argv: argument matrix
- * Return: 0
+ * Return: 0 on success
  */
 int main(int argc, char *argv[])
 {
@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 	int i;
 
 	result = 0;
+
 	if (_mydigit(argc, 1, 0, argv) == 1)
 	{
 		printf("Error\n");
@@ -41,7 +42,10 @@ int main(int argc, char *argv[])
 	}
 	
 	for (i = 1; i < argc; i++)
-		result += atoi(argv[i]);
+	{
+	result += atoi(argv[i]);
+	}
+	
 	printf("%d\n", result);
 	return (0);
 }
