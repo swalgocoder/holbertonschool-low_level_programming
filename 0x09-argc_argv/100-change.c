@@ -12,8 +12,14 @@
 int main(int argc, char **argv)
 {
 	int sum, count, q, d, n, 2p, 1p;
-
+	
+	q = 25;
+	d = 10;
+	n = 5;
+	2p = 2;
+	1p = 1;
 	count = 0;
+	
 	if (argc != 2)
 	{
 		printf("Error\n");
