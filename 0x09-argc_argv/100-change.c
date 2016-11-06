@@ -13,7 +13,6 @@ int main(int argc, char **argv)
 {
 	int sum, count;
 
-
 	count = 0;
 	if (argc != 2)
 	{
