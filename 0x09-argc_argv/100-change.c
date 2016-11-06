@@ -36,17 +36,16 @@ while (sum < 0)
 	return (0);
 }
 
-while (sum > 0)
-{
-  if (sum % q > = 0)
+
+  	if (sum % q > = 0)
 	{
 		count += sum / q;
 		sum = sum % q;
 	}
 	if (sum % d >=0)
 	{
-		count += sum / 10;
-		sum = sum % 10;
+		count += sum / d;
+		sum = sum % d;
 	}
 	if (sum % n >= 0)
 	{
@@ -63,9 +62,9 @@ while (sum > 0)
 		count += sum / 1p;
 		sum = sum % 1p;
 	}
-}
-	printf("%d\n", count);
-	return (0);
+
+printf("%d\n", count);
+return (0);
 
 
 }
