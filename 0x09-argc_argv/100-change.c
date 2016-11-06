@@ -61,10 +61,11 @@ while (sum > 0)
 	if (sum % 1p >= 0)
 	{
 		count += sum / 1p;
-    sum = sum % 1p;
+		sum = sum % 1p;
 	}
+}
 	printf("%d\n", count);
 	return (0);
-}
+
 
 }
