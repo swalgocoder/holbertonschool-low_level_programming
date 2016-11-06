@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	sum = atoi(*(argv + 1));
-	if (sum < 0)
+	while (sum < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
