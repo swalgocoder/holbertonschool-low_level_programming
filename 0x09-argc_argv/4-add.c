@@ -30,10 +30,12 @@ int mydigit(int argc, int i, unsigned int j, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int result;
+	int sum;
 	int i;
 
-	result = 0;
+	sum = 0;
+	if (argc < 1)
+		printf("%d\n", 0);
 
 	if (mydigit(argc, 1, 0, argv) == 1)
 	{
@@ -43,9 +45,9 @@ int main(int argc, char *argv[])
 	
 	for (i = 1; i < argc; i++)
 	{
-	result += atoi(argv[i]);
+	sum += atoi(argv[i]);
 	}
 	
-	printf("%d\n", result);
+	printf("%d\n", sum);
 	return (0);
 }
