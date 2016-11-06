@@ -2,69 +2,54 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-
 /**
- * main - the minimum amount of coins 4 change
- * @argc: # of arguement
- * @argv: value of argument
- * Return: 0
+ * main - prints the minimum number of coins to make change
+ * for an amount of money
+ * @argc: arguement count
+ * @argv: argument numbers
+ * Return: 0;
  */
 
 int main(int argc, char **argv)
 {
-int sum, q, d, n, 2p, 1p, count;
-  
-q = 25;
-d = 10;
-n = 5;
-2p = 2;
-1p = 1;
-  
-count = 0;
+	int value, count;
 
-if (argc != 2)
+	count = 0;
+	if (argc != 2)
 	{
-	printf("Error\n");
-	return (1);
+		printf("Error\n");
+		return (1);
 	}
-
-sum = atoi(argv[1]);
-
-if (sum < 0)
-{
-	printf("%d\n", 0);
+	value = atoi(argv[1]);
+	if (value < 0)
+	{
+		printf("%d\n", 0);
+		return (0);
+	}
+	if (value % 25 >= 0)
+	{
+		count += value / 25;
+		value = value % 25;
+	}
+	if (value % 10 >= 0)
+	{
+		count += value / 10;
+		value = value % 10;
+	}
+	if (value % 5 >= 0)
+	{
+		count += value / 5;
+		value = value % 5;
+	}
+	if (value % 2 >= 0)
+	{
+		count += value / 2;
+		value = value % 2;
+	}
+	if (value % 1 >= 0)
+	{
+		count += value / 1;
+	}
+	printf("%d\n", count);
 	return (0);
-}
-
-
-  	if (sum % q > = 0)
-	{
-		count += sum / q;
-		sum = sum % q;
-	}
-	if (sum % d >=0)
-	{
-		count += sum / d;
-		sum = sum % d;
-	}
-	if (sum % n >= 0)
-	{
-		count += sum / n;
-		sum = sum % n;
-	}
-	if (sum % 2p >= 0)
-	{
-		count += sum / 2p;
-		sum = sum % 2p;
-	}
-	if (sum % 1p >= 0)
-	{
-		count += sum / 1p;
-		sum = sum % 1p;
-	}
-
-printf("%d\n", count);
-return (0);
-
-
 }
