@@ -26,27 +26,27 @@ int main(int argc, char **argv)
 		printf("%d\n", 0);
 		return (0);
 	}
-	while (sum % 25 >= 0)
+	if (sum % 25 >= 0)
 	{
 		count += sum / 25;
 		sum = sum % 25;
 	}
-	while (sum % 10 >= 0)
+	if (sum % 10 >= 0)
 	{
 		count += sum / 10;
 		sum = sum % 10;
 	}
-	while (sum % 5 >= 0)
+	if (sum % 5 >= 0)
 	{
 		count += sum / 5;
 		sum = sum % 5;
 	}
-	while (sum % 2 >= 0)
+	if (sum % 2 >= 0)
 	{
 		count += sum / 2;
 		sum = sum % 2;
 	}
-	while (sum % 1 >= 0)
+	if (sum % 1 >= 0)
 	{
 		count += sum / 1;
 	}
