@@ -15,6 +15,7 @@ int main(int argc, char **argv)
 	int count;
 
 	count = 0;
+
 	while (argc != 2)
 	{
 		printf("Error\n");
@@ -23,12 +24,11 @@ int main(int argc, char **argv)
 
 	sum = atoi(argv[1]);
 
-	while (sum < 0)
+	if (sum < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
 	}
-
 	if (sum % 25 >= 0)
 	{
 		count += sum / 25;
