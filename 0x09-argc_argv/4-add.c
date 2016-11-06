@@ -18,9 +18,9 @@ int ck_input(int argc, int i, unsigned int j, char *argv[])
 		j = 0;
 		while (argv[i] != '\0' && j < strlen(argv[i]))
 		{
-			if (!isdigit(*argv[i]))
+			if (!isdigit(argv[i][j]))
 			return (1);
-			*argv[i]++;
+			j++;
 		}
 		i++;
 	}
