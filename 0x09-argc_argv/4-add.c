@@ -35,9 +35,7 @@ int mydigit(int argc, int i, unsigned int j, char *argv[])
 int main(int argc, char *argv[])
 {
 	int i;
-	long sum;
-
-	sum = 0;
+	lnt sum;
 
 	for (i = 1, sum = 0; i < argc; i++)
 	{
