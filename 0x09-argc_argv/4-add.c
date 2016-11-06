@@ -40,11 +40,9 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	
-	i = 1;
-	while (i < argc)
+	for (i = 1; < argc; i++)
 	{
 	sum += atoi(argv[i]);
-	i++;
 	}
 	
 	printf("%d\n", sum);
