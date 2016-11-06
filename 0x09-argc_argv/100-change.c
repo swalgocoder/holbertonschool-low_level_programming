@@ -11,49 +11,43 @@
 
 int main(int argc, char **argv)
 {
-	int sum, count, q, d, n, 2p, 1p;
-	
-	q = 25;
-	d = 10;
-	n = 5;
-	2p = 2;
-	1p = 1;
+	int value, count;
+
 	count = 0;
-	
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	sum = atoi(argv[1]);
-	if (sum < 0)
+	value = atoi(argv[1]);
+	if (value < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
 	}
-	if (sum % q >= 0)
+	if (value % 25 >= 0)
 	{
-		count += sum / q;
-		sum = sum % q;
+		count += value / 25;
+		value = value % 25;
 	}
-	if (sum % d >= 0)
+	if (value % 10 >= 0)
 	{
-		count += sum / d;
-		sum = sum % d;
+		count += value / 10;
+		value = value % 10;
 	}
-	if (sum % n >= 0)
+	if (value % 5 >= 0)
 	{
-		count += sum / n;
-		sum = sum % n;
+		count += value / 5;
+		value = value % 5;
 	}
-	if (sum % 2p >= 0)
+	if (value % 2 >= 0)
 	{
-		count += sum / 2p;
-		sum = sum % 2p;
+		count += value / 2;
+		value = value % 2;
 	}
-	if (sum % 1p >= 0)
+	if (value % 1 >= 0)
 	{
-		count += sum / 1p;
+		count += value / 1;
 	}
 	printf("%d\n", count);
 	return (0);
