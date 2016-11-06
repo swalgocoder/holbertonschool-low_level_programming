@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * _mydigit - checks if input starts with a number
+ * mydigit - checks if input starts with a number
  * @argc: argument count
  * @i: number of arguments
  * @j: number of element in each argument
- * @argv: argument matrix
+ * @argv: pointer to argument matrix
  * Return: 0 on success
  */
 int mydigit(int argc, int i, unsigned int j, char *argv[])
@@ -25,7 +25,7 @@ int mydigit(int argc, int i, unsigned int j, char *argv[])
 /**
  * main - adds all arguments together if they are digits.
  * @argc: argument count only accepts ints separated by spaces.
- * @argv: argument matrix
+ * @argv: pointer argument matrix
  * Return: 0 on success
  */
 int main(int argc, char *argv[])
