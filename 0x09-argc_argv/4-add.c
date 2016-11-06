@@ -33,13 +33,20 @@ int main(int argc, char *argv[])
 	int sum, i;
 
 	sum = 0;
+
 	if (ck_input(argc, 1, 0, argv) == 1)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (i = 1; i < argc; i++)
+	
+	i = 0;
+	while (i < argc)
+	{
 		sum += atoi(argv[i]);
+	i++;
+	}
+	
 	printf("%d\n", sum);
 	return (0);
 }
