@@ -37,9 +37,6 @@ int main(int argc, char *argv[])
 
 	sum = 0;
 
-	if (argc < 1)
-		printf("%d\n", 0);
-
 	if (mydigit(argc, 1, 0, argv) == 1)
 	{
 		printf("Error\n");
