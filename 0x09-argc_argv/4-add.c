@@ -40,7 +40,8 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	
-	i = 0;
+	i = 1;
+	
 	while (i < argc)
 	{
 		sum += atoi(argv[i]);
