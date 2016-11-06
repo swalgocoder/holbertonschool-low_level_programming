@@ -1,57 +1,32 @@
 #include "holberton.h"
-/**
- * _strlen - string length helper
- *
- * @s: pointer to string
- * Return: length of string
- */
-int _strlen(char *s)
-{
-	int n;
+#include <stdio.h>
 
-	for (n = 0; *s != '\0'; s++)
-		n++;
-	return (n);
-}
 /**
- * _strchr - checks for a char in a string
- * @s: the string
- * @c: the char being searched for
- * Return: pointer to char on success, NULL on failure
+ * _strspn - returns number of bytes in the initial sengment s
+ * @s: for the count action
+ * @accept: parameter for char
+ * Return: number of bytes;
  */
-char *_strchr(char *s, char c)
-{
-	int len, n;
 
-	len = _strlen(s);
-	for (n = 0; n < len; n++)
-	{
-		if (*(s + n) == c)
-			return (s + n);
-	}
-	s = '\0';
-	return (s);
-}
-/**
- * _strspn - gets length of a substring
- *
- * @s: string to be searched
- * @accept: string to match
- * Return: number of matching bytes
- */
 unsigned int _strspn(char *s, char *accept)
 {
-	int s_len, n, result;
+	unsigned int num;
+	int i, j, t;
 
-	s_len = _strlen(s);
-	n = 0;
-	result = 0;
-	while (n < s_len)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (_strchr(accept, *(s + n)))
-			result++, n++;
-		else
-			return (result);
+		t = 0;
+		for (j = 0; accept[j] != '\0'; j++)
+		{
+			if (s[i] == accept[j])
+				t = 1;
+		}
+		j = 0;
+		if (t == 0)
+			break;
+		num++;
+		i++;
 	}
-	return (result);
+	return (i);
 }
