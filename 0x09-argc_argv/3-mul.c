@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-
 /**
  * main - multiplication of  2 numbers
  * @argc: number of arguments
@@ -15,7 +13,7 @@ int main(int argc, char *argv[])
 	int mul1;
 	int mul2;
 
-	mul1 = 0; 
+	mul1 = 0;
 	mul2 = 0;
 
 	if (argc != 3)
