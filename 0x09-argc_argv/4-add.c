@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * checker - checks for valid input
- * @argc: argument count
- * @i: counter for argv[]
- * @j: counter for argv[][]
- * @argv: argument vector
- * Return: 0 on success, 1 on failure
+ * ck_input - checks for valid input
+ * @argc: count
+ * @i: count
+ * @j: # of elements
+ * @argv: argument array
+ * Return: 0
  */
-int checker(int argc, int i, unsigned int j, char *argv[])
+int ck_input(int argc, int i, unsigned int j, char *argv[])
 {
 	for (i = 1; i <= argc; i++)
 		for (j = 0; argv[i] != '\0' && j < strlen(argv[i]); j++)
@@ -26,16 +26,16 @@ int checker(int argc, int i, unsigned int j, char *argv[])
  */
 int main(int argc, char *argv[])
 {
-	int result, i;
+	int sum, i;
 
-	result = 0;
-	if (checker(argc, 1, 0, argv) == 1)
+	sum = 0;
+	if (ck_input(argc, 1, 0, argv) == 1)
 	{
 		printf("Error\n");
 		return (1);
 	}
 	for (i = 1; i < argc; i++)
-		result += atoi(argv[i]);
-	printf("%d\n", result);
+		sum += atoi(argv[i]);
+	printf("%d\n", sum);
 	return (0);
 }
