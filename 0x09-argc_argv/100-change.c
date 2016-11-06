@@ -3,16 +3,15 @@
 #include <stdlib.h>
 #include <ctype.h>
 /**
- * main - prints the minimum number of coins to make change
- * for an amount of money
- * @argc: arguement count
- * @argv: argument numbers
- * Return: 0;
+ * main - the minimum number of coins 4 change
+ * @argc: number of arguement
+ * @argv: value of argument
+ * Return: 0
  */
 
 int main(int argc, char **argv)
 {
-	int value, count;
+	int sum, count;
 
 	count = 0;
 	if (argc != 2)
@@ -20,35 +19,35 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
-	value = atoi(argv[1]);
-	if (value < 0)
+	sum = atoi(argv[1]);
+	if (sum < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
 	}
-	if (value % 25 >= 0)
+	if (sum % 25 >= 0)
 	{
-		count += value / 25;
-		value = value % 25;
+		count += sum / 25;
+		sum = sum % 25;
 	}
-	if (value % 10 >= 0)
+	if (sum % 10 >= 0)
 	{
-		count += value / 10;
-		value = value % 10;
+		count += sum / 10;
+		sum = sum % 10;
 	}
-	if (value % 5 >= 0)
+	if (sum % 5 >= 0)
 	{
-		count += value / 5;
-		value = value % 5;
+		count += sum / 5;
+		sum = sum % 5;
 	}
-	if (value % 2 >= 0)
+	if (sum % 2 >= 0)
 	{
-		count += value / 2;
-		value = value % 2;
+		count += sum / 2;
+		sum = sum % 2;
 	}
-	if (value % 1 >= 0)
+	if (sum % 1 >= 0)
 	{
-		count += value / 1;
+		count += sum / 1;
 	}
 	printf("%d\n", count);
 	return (0);
