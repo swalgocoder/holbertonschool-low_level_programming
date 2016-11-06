@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 {
 	int sum, count;
 
+	q = 25;
 	count = 0;
 	if (argc != 2)
 	{
@@ -25,10 +26,10 @@ int main(int argc, char **argv)
 		printf("%d\n", 0);
 		return (0);
 	}
-	if (sum % 25 >= 0)
+	if (sum % q >= 0)
 	{
-		count += sum / 25;
-		sum = sum % 25;
+		count += sum / q;
+		sum = sum % q;
 	}
 	if (sum % 10 >= 0)
 	{
