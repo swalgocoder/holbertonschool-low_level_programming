@@ -1,0 +1,35 @@
+#include <stdlib.h>
+
+/**
+ * _strdup -  array of chars initialized
+ * @str: pointer
+ * Return: Pointer to duplicated str
+ */
+char *_strdup(char *str)
+{
+
+
+	char *my_str;
+
+	int count;
+
+	int l;
+
+	for (count = 0; str[count] != '\0'; count++)
+	{
+	}
+	l = count;
+
+
+	my_str = malloc(l * sizeof(char));
+
+	if (my_str == NULL)
+	return (NULL);
+
+	for (count = 0; count < l; count++)
+	{
+	my_str[count] = str[count];
+	}
+
+return (my_str);
+}
