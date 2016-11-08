@@ -1,0 +1,55 @@
+#include <stdlib.h>
+
+/**
+ * str_concat -  array of chars initialized
+ * @s1: pointer
+ * @s2: pointer
+ * Return: Pointer
+ */
+char *str_concat(char *s1, char *s2)
+{
+
+
+	char *my_str;
+
+	int count;
+	int count2;
+
+	int l1;
+	int l2;
+
+	count = count2 = l1 = l2 = 0;
+
+	for (count = 0; s1[count] != '\0'; count++)
+	{
+	}
+
+	l1 = count;
+
+	for (count2 = 0; s2[count2] != '\0'; count2++)
+	  {
+	  }
+
+	l2 = count2;
+
+	my_str = malloc((l1 + l2) * sizeof(*s1));
+
+	if (my_str == NULL)
+	return (NULL);
+
+	for (count = 0; count < l1; count++)
+	{
+	my_str[count] = s1[count];
+	}
+
+
+	for (count2 = 0; count2 < l2; count2++)
+	{
+	    my_str[count] = s2[count2];
+	}
+
+
+
+
+return (my_str);
+}
