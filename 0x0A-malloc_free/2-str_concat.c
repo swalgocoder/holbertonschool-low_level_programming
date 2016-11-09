@@ -1,44 +1,57 @@
 #include <stdlib.h>
 
 /**
- * str_concat - concatenate
- * @s1: string 1
- * @s2: string 2
- *
- * Return: Pointer to new space in memory, NULL if it fails
+ * str_len - length of string
+ * @s: string
+ * Return: length
+ */
+int str_len(char *s)
+{
+	int count;
+
+	for (count = 0; *s != '\0'; count++)
+	{
+		s++;
+	}
+	return (count);
+}
+/**
+ * str_concat - concatenates s1 s2
+ * @s1: first string
+ * @s2: second string
+ * Return: address of mystr otherwise null
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *mys;
-	int count, l1, l2, count2;
+	char *mystr, *swap;
+	int count, count2;
 
-	count = l1 = l2 = 0;
-	while (s1[count] != '\0')
-	{
-		l1++;
-		count++;
-	}
-	count = 0;
-	while (s2[count] != '\0')
-	{
-		l2++;
-		count++;
-	}
-	mys = malloc((l1 + l2) * sizeof(*s1));
-	if (mys == NULL)
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	count = str_len(s1);
+	count2 = str_len(s2);
+	count2++;
+	if (count != 0 || count2 != 0)
+		mystr = malloc(count * sizeof(*s1) + count2 * sizeof(*s2));
+	else
 		return (NULL);
-	count = 0;
-	while (count < l1)
+	if (mystr == NULL)
+		return (NULL);
+	swap = mystr;
+	while (*s1 != '\0')
 	{
-		mys[count] = s1[count];
-		count++;
+		*mystr = *s1;
+		mystr++;
+		s1++;
 	}
-	count2 = 0;
-	while (count2 < l2)
+	while (*s2 != '\0')
 	{
-		mys[count] = s2[count2];
-		count++;
-		count2++;
+		*mystr = *s2;
+		mystr++;
+		s2++;
 	}
-	return (mys);
+	*mystr = '\0';
+	return (swap);
 }
