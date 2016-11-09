@@ -36,9 +36,11 @@ int **alloc_grid(int width, int height)
 	count = 0;
 	while (count < height)
 	{
-		for (count2 = 0; count2 < width; count2++)
+		count2 = 0;
+		while (count2 < width)
 		{
 			mygrid[count][count2] = 0;
+			count2++;
 		}
 	count++;
 	}
