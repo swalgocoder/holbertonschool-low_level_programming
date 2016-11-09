@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 /**
- * alloc_grid -  dynamically allocate mem for 2D array
+ * alloc_grid - allocate mem for 2D array
  * @width: Width of grid, columns
  * @height: Height of grid, rows
  *
