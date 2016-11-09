@@ -16,6 +16,7 @@ int **alloc_grid(int width, int height)
 	mygrid = malloc(height * sizeof(int *));
 	if (mygrid == NULL)
 		return (NULL);
+
 	count = 0;
 	
 	while (count < height)
@@ -36,6 +37,7 @@ int **alloc_grid(int width, int height)
 	}
 	
 	count = 0;
+	
 	while (count < height)
 	{
 		for (count2 = 0; count2 < width; count2++)
