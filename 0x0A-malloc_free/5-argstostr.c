@@ -20,10 +20,10 @@ char *argstostr(int ac, char **av)
 		for (count2 = 0; av[count][count2] != '\0'; count2++)
 		{
 			*mystr = av[count][count2];
-			mystr++;
+			mystr[count2]++;
 		}
 		*mystr = '\n';
-		mystr++;
+		mystr[count]++;
 	}
 	if (swap)
 		return (swap);
