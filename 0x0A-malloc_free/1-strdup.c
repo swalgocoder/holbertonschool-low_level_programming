@@ -1,36 +1,32 @@
+#include "holberton.h"
 #include <stdlib.h>
 
 /**
- * _strdup -  array of chars initialized
- * @str: pointer
- * Return: Pointer to duplicated str
+ * _strdup - duplicates a string
+ * @str: string to duplicate
+ * Return: pointer to myarray or NULL
  */
 char *_strdup(char *str)
 {
+	char *myarray;
+	int counter;
 
-
-	char *my_str;
-
-	int count;
-
-	int l;
-
-
-	for (count = 0; str[count] != '\0'; count++)
+	if (str == NULL)
+		return (NULL);
+	counter = 0;
+	while (str[counter] != '\0')
+		counter++;
+	counter++;
+	if (counter != 0)
+		myarray = malloc(counter * sizeof(*str));
+	else
+		return (NULL);
+	counter = 0;
+	while (str[counter] != '\0')
 	{
+		myarray[counter] = str[counter];
+		counter++;
 	}
-
-	l = count;
-
-	my_str = malloc(l * sizeof(*str));
-
-	if (my_str == NULL)
-	return (NULL);
-
-	for (count = 0; count < l && str[count] != '\0'; count++)
-	{
-	my_str[count] = str[count];
-	}
-
-return (my_str);
+	return (myarray);
+	free(str);
 }
