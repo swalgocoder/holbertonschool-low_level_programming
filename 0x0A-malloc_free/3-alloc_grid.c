@@ -1,13 +1,10 @@
 #include <stdlib.h>
-
 /**
  * alloc_grid - allocate mem for 2D array
  * @width: Width of grid, columns
  * @height: Height of grid, rows
- *
- * Return: Pointer to  array, NULL if it fails
+ * Return: Pointer to array, null if fails
  */
-
 int **alloc_grid(int width, int height)
 {
 	int **mygrid;
