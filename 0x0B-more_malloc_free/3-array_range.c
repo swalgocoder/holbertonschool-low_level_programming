@@ -15,13 +15,13 @@ int *array_range(int min, int max)
 		return (NULL);
 	num_elem = max - min;
 
-	myarray = malloc(num_elem * sizeof(int));
+	myarray = malloc((num_elem + 1) * sizeof(int));
 	if (myarray == NULL)
 	return (NULL);
 
-		for (count = 0; count <= num_elem; count++)
+	for (count = 0; count <= num_elem; min++, count++)
 		{
-			myarray[count] = min++;
+		myarray[count] = min;
 		}
 
 	return (myarray);
