@@ -9,7 +9,7 @@ int str_len(char *s)
 {
 	unsigned int count;
 
-	for (count = 0; *(s + count); count++)
+	for (count = 0; s[count] != '\0'; count++)
 	{
 	}
 	return (count);
@@ -36,22 +36,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	count2_l++;
 
-	if (n >= count2_l)
-		mystr = malloc((count_l + count2_l) * sizeof(mystr));
-	else
-		mystr = malloc((count_l + n + 1) * sizeof(mystr));
+	mystr = malloc((count_l + (n * sizeof(*s2) + 1) * sizeof(*mystr)));
+
 	if (mystr == NULL)
 		return (NULL);
 
 	count = 0;
-	while (count < count_l)
+	while (s1[count] != '\0')
 	{
 	*(mystr + count) = *(s1 + count);
 	count++;
 	}
 
 	count2 = 0;
-	while (count2 < count2_l && count2 < n)
+	while (s2[count2] != '\0' && count2 < n)
 	{
 	*(mystr + count) = *(s2 + count2);
 	count++;
