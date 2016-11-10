@@ -19,6 +19,7 @@ int str_len(char *s)
  * string_nconcat - concatenates s1 s2
  * @s1: string 1
  * @s2: string 2
+ * @n: number of bites of s2
  * Return: address of mystr otherwise null
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -36,8 +37,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	count2++;
 
 	if (n >= count2 - 1)
-	  n = count2;
+	{
+	n = count2;
 	mystr = malloc((count + count2) * sizeof(*mystr));
+	}
 
 	if (mystr == NULL)
 		return (NULL);
@@ -49,7 +52,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		count++;
 	}
 
-	count3 = 0;	
+	count3 = 0;
 	while (s2[count3] != '\0' && count3 <= n)
 	{
 		mystr[count] = s2[count3];
