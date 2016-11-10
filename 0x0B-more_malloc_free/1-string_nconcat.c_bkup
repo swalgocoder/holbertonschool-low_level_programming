@@ -1,0 +1,62 @@
+#include <stdlib.h>
+
+/**
+ * str_len - length of string
+ * @s: string
+ * Return: length
+ */
+int str_len(char *s)
+{
+	unsigned int count;
+
+	for (count = 0; *s != '\0'; count++)
+	{
+		s++;
+	}
+	return (count);
+}
+/**
+ * string_nconcat - concatenates s1 s2
+ * @s1: string 1
+ * @s2: string 2
+ * Return: address of mystr otherwise null
+ */
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	char *mystr, *swap;
+	unsigned int count, count2;
+
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	count = str_len(s1);
+	count2 = str_len(s2);
+	count2++;
+
+	if (count != 0 || count2 != 0)
+		mystr = malloc(count * sizeof(*s1) + count2 * sizeof(*s2));
+	else
+		return (NULL);
+	if (mystr == NULL)
+		return (NULL);
+	swap = mystr;
+	count = 0;
+	while (*s1)
+	{
+		*mystr = *s1;
+		mystr++;
+		s1++;
+		count++;
+	}
+
+	count2 = 0;	
+	while (count2 <= n)
+	{
+		mystr[count] = s2[count2];
+		count++;
+		count2++;
+	}
+	*mystr = '\0';
+	return (swap);
+}
