@@ -36,7 +36,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	count2_l++;
 
-	mystr = malloc((count_l + (n * sizeof(*s2) + 1) * sizeof(*mystr)));
+	if (n > count2_l)
+	  mystr = malloc((count_l + count2_l) * sizeof(*mystr));
+        else
+	  mystr = malloc((count_l + n + 1) * sizeof(*mystr));
 
 	if (mystr == NULL)
 		return (NULL);
