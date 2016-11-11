@@ -36,8 +36,3 @@ int main(void)
   print_tab(tab);
   return (0);
 }
-julien@ubuntu:~/0x0a. malloc, free$ gcc -Wall -pedantic -Werror -Wextra 100-main.c 100-strtow.c -o strtow
-  julien@ubuntu:~/0x0a. malloc, free$ ./strtow | cat -e
-Holberton$
-School$
-#cisfun$

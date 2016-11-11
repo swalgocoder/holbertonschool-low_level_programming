@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "holberton.h"
 /**
  * str_len - length of string
  * @s: string
@@ -10,11 +11,10 @@ int str_len(char *s)
   unsigned int count;
 
   for (count = 0; s[count] != '\0'; count++)
-    {
- 
-  return (count);
+	{
+	}
+ return (count);
 }
-
 
 #include <stdlib.h>
 #include "holberton.h"
