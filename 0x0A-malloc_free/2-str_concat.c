@@ -40,7 +40,7 @@ char *str_concat(char *s1, char *s2)
 	if (mystr == NULL)
 		return (NULL);
 	swap = mystr;
-	while (*s1 != '\0')
+	while (*s1)
 	{
 		*mystr = *s1;
 		mystr++;

@@ -1,50 +1,63 @@
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
- * strtow - convert string to word array
- * @str: string to convert
- * Return: char array
+ * str_len - length of string
+ * @s: string
+ * Return: length
  */
+int str_len(char *s)
+{
+  unsigned int count;
+
+  for (count = 0; s[count] != '\0'; count++)
+    {
+ 
+  return (count);
+}
+
+
+#include <stdlib.h>
+#include "holberton.h"
+/**
+ * strtow - array of strings
+ * @str: strings inside of array
+ * Return: pointer to array
+ */
+
 char **strtow(char *str)
 {
-	char **set, *temp;
-	int n, i, j, l;
+  int **mygrid, swap;
+	int count, count2;
+	int length;
 
-	i = j = l = n = 0;
-	temp = str;
-	while (*temp != '\0')
+	if (str == NULL || str =="")
+		return (NULL);
+	mygrid = malloc(sizeof(char *str));
+
+
+	if (mygrid == NULL)
+		return (NULL);
+
+	length = str_len(str);
+	
+
+	count = 0;
+	while (count < length) 
 	{
-		n++;
-		temp++;
-	}
-	set = malloc((n + 1) * sizeof(char *));
-	while (*str != '\0')
-	{
-		if (*str == ' ')
-			str++;
-		else
-		{
-			temp = str;
-			while (*temp != '\0' && *temp != ' ')
-			{
-				temp++;
-				l++;
-			}
-			if (*str != ' ')
-				set[i] = malloc(sizeof(char) * l);
-			while (*str != ' ' && *str != '\0')
-			{
-				set[i][j] = *str;
-				str++;
-				j++;
-			}
-			set[i][j] = '\0';
-			i++;
-			j = 0;
-			str++;
+		if (str[count] !=' ')
+
+		  count2 = count;
+		while (str[count2] !=' ')  
+		{			
+			mygrid[count2] = str[count2];
+			count2++;
 		}
+
+	   count = count2;
+	   mygrid(count) ='';
+
+	count++;
 	}
-	set[n] = malloc(sizeof(char));
-	set[n] = '\0';
-	return (set);
+	
+	return (mygrid);
 }
