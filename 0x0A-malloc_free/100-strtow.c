@@ -22,8 +22,8 @@ char **strtow(char *str)
 	}
 	if (count == 0)
 		return (NULL);
-	array = malloc(((count + 1) * sizeof(char *)));
-	if (array == NULL)
+	myarray = malloc(((count + 1) * sizeof(char *)));
+	if (myarray == NULL)
 		return (NULL);
 	for (count1 = 0; str[count1] !=  '\0' && k < count; count1++)
 	{
@@ -33,19 +33,19 @@ char **strtow(char *str)
 			j = count1;
 			while (str[j] != ' ' && str[j] != '\0')
 				j++, len++;
-			array[k] = malloc((len + 1) * sizeof(char));
-			if (array[k] == NULL)
+			myarray[k] = malloc((len + 1) * sizeof(char));
+			if (myarray[k] == NULL)
 			{
 				for (k = k - 1; k >= 0; k++)
-					free(array[k]);
-				free(array);
+					free(myarray[k]);
+				free(myarray);
 				return (NULL);
 			}
 			for (m = 0; m < len; m++, count1++)
-				array[k][m] = str[count1];
-			array[k++][m] = '\0';
+				myarray[k][m] = str[count1];
+			myarray[k++][m] = '\0';
 		}
 	}
-	array[k] = NULL;
-	return (array);
+	myarray[k] = NULL;
+	return (myarray);
 }
