@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "holberton.h"
 
 /**
  * num_words - helper function to find number of words
