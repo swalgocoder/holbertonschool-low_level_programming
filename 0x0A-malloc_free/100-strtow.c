@@ -40,9 +40,9 @@ char **strtow(char *str)
 				free(myarray);
 				return (NULL);
 			}
-			for (m = 0; m < len; m++, count1++)
-				myarray[k][m] = str[count1];
-			myarray[k++][m] = '\0';
+			for (count2 = 0; count2 < len; count2++, count1++)
+				myarray[k][count2] = str[count1];
+			myarray[k++][count2] = '\0';
 		}
 	}
 	myarray[k] = NULL;
