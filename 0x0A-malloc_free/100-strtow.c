@@ -9,7 +9,7 @@
 char **strtow(char *str)
 {
 	char **myarray;
-	int count1, count2, w_count, len, array_row, count3;
+	int count1, count2, w_count, w_len, array_row, count3;
 
 	w_count = array_row = 0;
 	if (str == NULL || str[0] == '\0')
@@ -28,11 +28,11 @@ char **strtow(char *str)
 	{
 		if (str[count1] != ' ')
 		{
-			len = 0;
+			w_len = 0;
 			count2 = count1;
 			while (str[count2] != ' ' && str[count2] != '\0')
-				count2++, len++;
-			myarray[array_row] = malloc((len + 1) * sizeof(char));
+				count2++, w_len++;
+			myarray[array_row] = malloc((w_len + 1) * sizeof(char));
 			if (myarray[array_row] == NULL)
 			{
 				for (array_row = array_row - 1; array_row >= 0; array_row++)
@@ -40,7 +40,7 @@ char **strtow(char *str)
 				free(myarray);
 				return (NULL);
 			}
-			for (count3 = 0; count3 < len; count3++, count1++)
+			for (count3 = 0; count3 < w_len; count3++, count1++)
 				myarray[array_row][count3] = str[count1];
 			myarray[array_row++][count3] = '\0';
 		}
