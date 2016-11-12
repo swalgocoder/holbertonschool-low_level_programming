@@ -14,10 +14,12 @@ char **strtow(char *str)
 	w_count = array_row = 0;
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	for (count1 = 0; str[count1] != '\0'; count1++)
+	count1 = 0;
+	while (str[count1] != '\0')
 	{
 		if (str[count1] != ' ' && (str[count1 + 1] == ' ' || str[count1 + 1] == '\0'))
 			w_count++;
+	count1++;
 	}
 	if (w_count == 0)
 		return (NULL);
