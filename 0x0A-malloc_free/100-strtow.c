@@ -26,7 +26,8 @@ char **strtow(char *str)
 	myarray = malloc(((w_count + 1) * sizeof(char *)));
 	if (myarray == NULL)
 		return (NULL);
-	for (count1 = 0; str[count1] !=  '\0' && array_row < w_count; count1++)
+	count1 = 0;
+	while (str[count1] !=  '\0' && array_row < w_count)
 	{
 		if (str[count1] != ' ')
 		{
@@ -46,6 +47,7 @@ char **strtow(char *str)
 				myarray[array_row][count3] = str[count1];
 			myarray[array_row++][count3] = '\0';
 		}
+	count1++;
 	}
 	myarray[array_row] = NULL;
 	return (myarray);
