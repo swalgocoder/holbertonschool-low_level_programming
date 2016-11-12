@@ -9,22 +9,22 @@
 char **strtow(char *str)
 {
 	char **myarray;
-	int count1, count2, count, len, k, count3;
+	int count1, count2, w_count, len, k, count3;
 
-	count = k = 0;
+	w_count = k = 0;
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 	for (count1 = 0; str[count1] != '\0'; count1++)
 	{
 		if (str[count1] != ' ' && (str[count1 + 1] == ' ' || str[count1 + 1] == '\0'))
-			count++;
+			w_count++;
 	}
-	if (count == 0)
+	if (w_count == 0)
 		return (NULL);
-	myarray = malloc(((count + 1) * sizeof(char *)));
+	myarray = malloc(((w_count + 1) * sizeof(char *)));
 	if (myarray == NULL)
 		return (NULL);
-	for (count1 = 0; str[count1] !=  '\0' && k < count; count1++)
+	for (count1 = 0; str[count1] !=  '\0' && k < w_count; count1++)
 	{
 		if (str[count1] != ' ')
 		{
