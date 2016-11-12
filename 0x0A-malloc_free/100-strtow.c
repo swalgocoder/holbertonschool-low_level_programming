@@ -9,7 +9,7 @@
 char **strtow(char *str)
 {
 	char **myarray;
-	int count1, count2, count, len, k, m;
+	int count1, count2, count, len, k, count3;
 
 	count = k = 0;
 	if (str == NULL || str[0] == '\0')
@@ -40,9 +40,9 @@ char **strtow(char *str)
 				free(myarray);
 				return (NULL);
 			}
-			for (count2 = 0; count2 < len; count2++, count1++)
-				myarray[k][count2] = str[count1];
-			myarray[k++][count2] = '\0';
+			for (count3 = 0; count3 < len; count3++, count1++)
+				myarray[k][count3] = str[count1];
+			myarray[k++][count3] = '\0';
 		}
 	}
 	myarray[k] = NULL;
