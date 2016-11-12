@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
-
 /**
  * strtow - break strings to words
  * @str: string to break
@@ -10,7 +9,7 @@
 char **strtow(char *str)
 {
 	char **myarray;
-	int count1, j, count, len, k, m;
+	int count1, count2, count, len, k, m;
 
 	count = k = 0;
 	if (str == NULL || str[0] == '\0')
@@ -30,9 +29,9 @@ char **strtow(char *str)
 		if (str[count1] != ' ')
 		{
 			len = 0;
-			j = count1;
-			while (str[j] != ' ' && str[j] != '\0')
-				j++, len++;
+			count2 = count1;
+			while (str[count2] != ' ' && str[count2] != '\0')
+				count2++, len++;
 			myarray[k] = malloc((len + 1) * sizeof(char));
 			if (myarray[k] == NULL)
 			{
