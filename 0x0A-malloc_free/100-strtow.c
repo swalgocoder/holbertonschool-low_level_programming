@@ -9,15 +9,15 @@
  */
 char **strtow(char *str)
 {
-	char **array;
-	int i, j, count, len, k, m;
+	char **myarray;
+	int count1, j, count, len, k, m;
 
 	count = k = 0;
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
+	for (count1 = 0; str[count1] != '\0'; count1++)
 	{
-		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+		if (str[count1] != ' ' && (str[count1 + 1] == ' ' || str[count1 + 1] == '\0'))
 			count++;
 	}
 	if (count == 0)
@@ -25,12 +25,12 @@ char **strtow(char *str)
 	array = malloc(((count + 1) * sizeof(char *)));
 	if (array == NULL)
 		return (NULL);
-	for (i = 0; str[i] !=  '\0' && k < count; i++)
+	for (count1 = 0; str[count1] !=  '\0' && k < count; count1++)
 	{
-		if (str[i] != ' ')
+		if (str[count1] != ' ')
 		{
 			len = 0;
-			j = i;
+			j = count1;
 			while (str[j] != ' ' && str[j] != '\0')
 				j++, len++;
 			array[k] = malloc((len + 1) * sizeof(char));
@@ -41,8 +41,8 @@ char **strtow(char *str)
 				free(array);
 				return (NULL);
 			}
-			for (m = 0; m < len; m++, i++)
-				array[k][m] = str[i];
+			for (m = 0; m < len; m++, count1++)
+				array[k][m] = str[count1];
 			array[k++][m] = '\0';
 		}
 	}
