@@ -17,7 +17,7 @@ char **strtow(char *str)
 	while (str[count1] != '\0')
 	{
 		if (str[count1] != ' ' && (str[count1 + 1] == ' ' || str[count1 + 1] == '\0'))
-			w_count++;
+		w_count++;
 	count1++;
 	}
 	if (w_count == 0)
@@ -26,7 +26,7 @@ char **strtow(char *str)
 	if (myarray == NULL)
 		return (NULL);
 	count1 = 0;
-	while (str[count1] !=  '\0' && array_row < w_count)
+	while (str[count1] != '\0' && array_row < w_count)
 	{
 		if (str[count1] != ' ')
 		{
