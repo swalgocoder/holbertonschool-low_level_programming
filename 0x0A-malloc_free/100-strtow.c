@@ -38,7 +38,7 @@ char **strtow(char *str)
 			if (myarray[array_row] == NULL)
 			{
 				while (--array_row >= 0)
-					free(myarray[--array_row]);
+				free(myarray[--array_row]);
 				free(myarray);
 				return (NULL);
 			}
