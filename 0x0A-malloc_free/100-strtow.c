@@ -37,8 +37,8 @@ char **strtow(char *str)
 			myarray[array_row] = malloc((w_len + 1) * sizeof(char));
 			if (myarray[array_row] == NULL)
 			{
-				for (array_row = array_row - 1; array_row >= 0; array_row++)
-					free(myarray[array_row]);
+				while (--array_row >= 0)
+					free(myarray[--array_row]);
 				free(myarray);
 				return (NULL);
 			}
