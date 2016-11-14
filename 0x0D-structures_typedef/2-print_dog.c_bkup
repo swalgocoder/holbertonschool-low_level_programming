@@ -1,0 +1,18 @@
+#include "dog.h"
+#include <stdlib.h>
+#include <stdio.h>
+/**
+* print_dog - print struct dog
+* @d: pointer to struct dog
+* @name: pointer,  name of dog
+* @age: age of dog
+* @owner: pointer, owner of dog
+* Return: void
+**/
+void print_dog(struct dog *d)
+{
+  struct dog my_dog;
+  init_dog(&my_dog, "Django", 3.5, "Jay");
+  printf("My name is %s, and I am %.1f :) - Woof!\n", my_dog.name, my_dog.age);
+
+}
