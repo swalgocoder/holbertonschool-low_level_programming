@@ -1,63 +1,55 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "holberton.h"
 /**
- * str_len - length of string
- * @s: string
- * Return: length
+ * strtow - break strings to words
+ * @str: string to break
+ * Return: pointer to myarray of words
  */
-int str_len(char *s)
-{
-  unsigned int count;
-
-  for (count = 0; s[count] != '\0'; count++)
-	{
-	}
- return (count);
-}
-
-#include <stdlib.h>
-#include "holberton.h"
-/**
- * strtow - array of strings
- * @str: strings inside of array
- * Return: pointer to array
- */
-
 char **strtow(char *str)
 {
-  int **mygrid, swap;
-	int count, count2;
-	int length;
+	char **myarray;
+	int count1, count2, w_count, w_len, array_row, count3;
 
-	if (str == NULL || str =="")
+	w_count = array_row = 0;
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	mygrid = malloc(sizeof(char *str));
-
-
-	if (mygrid == NULL)
-		return (NULL);
-
-	length = str_len(str);
-	
-
-	count = 0;
-	while (count < length) 
+	count1 = 0;
+	while (str[count1] != '\0')
 	{
-		if (str[count] !=' ')
-
-		  count2 = count;
-		while (str[count2] !=' ')  
-		{			
-			mygrid[count2] = str[count2];
-			count2++;
-		}
-
-	   count = count2;
-	   mygrid(count) ='';
-
-	count++;
+		if (str[count1] != ' ' && (str[count1 + 1] == ' ' || str[count1 + 1] == '\0'))
+		w_count++;
+	count1++;
 	}
-	
-	return (mygrid);
+	if (w_count == 0)
+		return (NULL);
+	myarray = malloc(((w_count + 1) * sizeof(char *)));
+	if (myarray == NULL)
+		return (NULL);
+	count1 = 0;
+	while (str[count1] != '\0' && array_row < w_count)
+	{
+		if (str[count1] != ' ')
+		{
+			w_len = 0;
+			count2 = count1;
+			while (str[count2] != ' ' && str[count2] != '\0')
+				count2++, w_len++;
+			myarray[array_row] = malloc((w_len + 1) * sizeof(char));
+			if (myarray[array_row] == NULL)
+			{
+				while (--array_row >= 0)
+				{
+				free(myarray[--array_row]);
+				}
+				free(myarray);
+				return (NULL);
+			}
+			for (count3 = 0; count3 < w_len; count3++, count1++)
+				myarray[array_row][count3] = str[count1];
+			myarray[array_row++][count3] = '\0';
+		}
+	count1++;
+	}
+	myarray[array_row] = NULL;
+	return (myarray);
 }
