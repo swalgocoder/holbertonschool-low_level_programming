@@ -18,7 +18,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	swap = name;
 	count = 0;
-	while (*swap != '\0')
+	while (*swap)
 	{
 	count++, swap++;
 	}
