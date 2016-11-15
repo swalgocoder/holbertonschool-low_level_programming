@@ -21,7 +21,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	count = 0;
 	while (*swap != '\0')
 	{
-	count++, swap++;
+	count++, swap[count]++;
 	}
 	if (count == 0)
 		return (NULL);
@@ -34,7 +34,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	count = 0;
 	while (*swap != '\0')
 	{
-	count++, swap++;
+	count++, swap[count]++;
 	}
 	if (count == 0)
 		return (NULL);
