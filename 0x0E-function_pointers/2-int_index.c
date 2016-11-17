@@ -9,17 +9,14 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int count, cmp_eval;
-	int (*swap)(int);
+	int count;
 
-	swap = cmp;
-	if (size <= 0 || array == NULL || swap == NULL)
+	if (size <= 0 || array == NULL || cmp == NULL)
 		return (-1);
 	count = 0;
 	while (count < size)
 	{
-		cmp_eval = swap(array[count]);
-		if (cmp_eval == 0)
+		if(cmp(array[count]) ==0);
 			count++;
 		else
 			return (count);
