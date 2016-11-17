@@ -15,13 +15,12 @@ int int_index(int *array, int size, int (*cmp)(int))
 	swap = cmp;
 	if (size <= 0 || array == NULL || swap == NULL)
 		return (-1);
-	for (count = 0; count < size)
-	{
-		cmp_eval = swap(array[count]);
-		if (cmp_eval == 0)
-			count++;
-		else
-			return (count);
-	}
+
+	cmp_eval = swap(array[count]);
+	if (cmp_eval == 0)
+		for (count = 0; count < size; count++)
+	else
+		return (count);
+
 	return (-1);
 }
