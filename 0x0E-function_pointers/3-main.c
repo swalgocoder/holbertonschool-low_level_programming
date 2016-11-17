@@ -12,6 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
+	int (*my_func)(int, int);
 
 	if (argc != 4)
 	{
