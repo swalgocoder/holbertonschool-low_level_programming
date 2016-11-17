@@ -9,7 +9,7 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int count, eval_cmp;
+	int count;
 	int (*swap)(int);
 
 	swap = cmp;
