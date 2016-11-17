@@ -3,16 +3,19 @@
 #include <stdio.h>
 
 /**
- * main - main function
+ * main - main
  * @argc: argument count
- * @argv: string of arguments in array
- * Return: 0
+ * @argv: string of arguments array
+ * Return: int 0
  */
 
 int main(int argc, char *argv[])
 {
 	int a, b;
-	int (*o)(int, int);
+	int (*my_func)(int, int);
+
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
 	if (argc != 4)
 	{
@@ -25,17 +28,14 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	o = get_op_func(argv[2]);
-	if (o == NULL)
+	my_func = get_op_func(argv[2]);
+	if (my_func == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
-	printf("%d\n", o(a, b));
+	printf("%d\n", my_func(a, b));
 
 	return (0);
 }
