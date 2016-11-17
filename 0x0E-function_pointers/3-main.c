@@ -14,9 +14,6 @@ int main(int argc, char *argv[])
 	int a, b;
 	int (*my_func)(int, int);
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -35,6 +32,8 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 	printf("%d\n", my_func(a, b));
 
 	return (0);
