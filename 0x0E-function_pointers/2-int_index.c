@@ -1,28 +1,28 @@
 #include <stdlib.h>
 
 /**
- * int_index - find index
- * @array: array to search
- * @size: size of array
- * @cmp: function
- * Return: index or -1
+ * int_index - indexing
+ * @array: array 2 search
+ * @size: array size
+ * @cmp: cmp function
+ * Return: array[i] or -1
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	int i, cmp_val;
-	int (*lol)(int);
+	int count, cmp_eval;
+	int (*swap)(int);
 
-	lol = cmp;
-	i = 0;
-	if (size <= 0 || array == NULL || lol == NULL)
+	swap = cmp;
+	if (size <= 0 || array == NULL || swap == NULL)
 		return (-1);
-	while (i < size)
+	count = 0;
+	while (count < size)
 	{
-		cmp_val = lol(array[i]);
-		if (cmp_val == 0)
-			i++;
+		cmp_eval = swap(array[count]);
+		if (cmp_eval == 0)
+			count++;
 		else
-			return (i);
+			return (count);
 	}
 	return (-1);
 }
