@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-	int a, b;
+	int my_num1, my_num2;
 	int (*my_func)(int, int);
 
 	if (argc != 4)
@@ -32,9 +32,9 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-	printf("%d\n", my_func(a, b));
+	my_num1 = atoi(argv[1]);
+	my_num2 = atoi(argv[3]);
+	printf("%d\n", my_func(my_num1, my_num2));
 
 	return (0);
 }
