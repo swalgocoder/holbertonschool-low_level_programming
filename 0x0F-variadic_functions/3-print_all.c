@@ -61,9 +61,8 @@ void print_all(const char * const format, ...)
 	char *separator;
 
 	va_start(ptr_arg1, format);
-	i = 0;
 	separator = "";
-	while (format != NULL && format[i] != '\0')
+	for (i = 0; format != NULL && format[i] != '\0'; i++)
 	{
 		j = 0;
 		while (j < 4)
@@ -75,7 +74,6 @@ void print_all(const char * const format, ...)
 			}
 			j++;
 		}
-		i++;
 	}
 	printf("\n");
 	va_end(ptr_arg1);
