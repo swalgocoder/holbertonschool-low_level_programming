@@ -2,7 +2,7 @@
 #define VARIADIC_FUNCTIONS_H
 #include <stdarg.h>
 /**
- * struct print_a - a struct
+ * struct print_arg - a struct
  * @c: char
  * @f: pointer to function
  */
