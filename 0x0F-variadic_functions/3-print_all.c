@@ -55,7 +55,7 @@ void print_all(const char * const format, ...)
 	char *my_c;
 	void (*f)();
 	} print_arg_t;
-	
+
 	print_arg_t print_arg[] = {
 			{"c", print_char},
 			{"i", print_int},
