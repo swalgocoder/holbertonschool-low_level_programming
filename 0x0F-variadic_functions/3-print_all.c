@@ -15,8 +15,23 @@ void print_all(const char * const format, ...)
 	unsigned int i;
 	char *str;
 
+	typedef struct op
+	{
+	  char *op;
+	  int (*f)(int a, int b);
+	} op_t;
 
-	my_struct[] = {
+	int (*get_op_func(char *s))(int, int);
+
+	int op_add(int, int);
+	int op_sub(int, int);
+	int op_mul(int, int);
+	int op_div(int, int);
+	int op_mod(int, int);
+
+
+
+	opt my_struct[] = {
 	  {"c", f_char},
 	  {"i", f_intb},
 	  {"f", f_float},
