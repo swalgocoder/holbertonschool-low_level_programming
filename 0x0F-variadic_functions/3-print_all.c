@@ -57,17 +57,13 @@ void print_all(const char * const format, ...)
 		{"f", print_float},
 		{"s", print_string}
 	};
-
-
+	va_list ptr_arg1;
 	unsigned int i, j;
 	char *separator;
-	
-	va_list ptr_arg1;
-	va_start(ptr_arg1, format);
 
+	va_start(ptr_arg1, format);
 	i = 0;
 	separator = "";
-	
 	while (format != NULL && format != '\0')
 	{
 		j = 0;
