@@ -11,7 +11,7 @@ void print_string(va_list ptr_arg1, char *separator)
 	char *swap_str;
 
 	swap_str = va_arg(ptr_arg1, char *);
-	
+
 	if (swap_str == NULL)
 	{
 		swap_str = "(nil)";
