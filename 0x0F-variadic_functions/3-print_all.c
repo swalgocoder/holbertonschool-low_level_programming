@@ -4,7 +4,7 @@
 /**
  *print_string - a string
  *@ptr_arg1: ptr to arg1
- *@separator: separator
+ *@separator: pointer separator
  */
 void print_string(va_list ptr_arg1, char *separator)
 {
@@ -37,7 +37,7 @@ void print_float(va_list ptr_arg1, char *separator)
 }
 /**
  *print_char - a character
- *@ptr: ptr to arg1
+ *@ptr_arg1: ptr to arg1
  *@separator: a separator
  */
 void print_char(va_list ptr_arg1, char *separator)
