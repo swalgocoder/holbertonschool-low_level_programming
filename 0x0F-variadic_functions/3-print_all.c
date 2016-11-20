@@ -8,14 +8,14 @@
  */
 void print_string(va_list ptr_arg1, char *separator)
 {
-	char *swap_str;
+	char *swap;
 
-	swap_str = va_arg(ptr_arg1, char *);
-	if (swap_str == NULL)
+	swap = va_arg(ptr_arg1, char *);
+	if (swap == NULL)
 	{
-			swap_str = "(nil)";
+		swap = "(nil)";
 	}
-	printf("%s%s", separator, swap_str);
+	printf("%s%s", separator, swap);
 }
 /**
  *print_int - an int
