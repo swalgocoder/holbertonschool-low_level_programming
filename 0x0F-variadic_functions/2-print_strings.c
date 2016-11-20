@@ -11,23 +11,23 @@
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 
-	va_list va_args;
+	va_list addr_arg1;
 	unsigned int i;
 
-	va_start(va_args, n);
+	va_start(addr_arg1, n);
 
 	for (i = 0; i < n; i++)
 	{
 
-		if (va_args == NULL)
+		if (addr_arg1 == NULL)
 		printf("nil");
 		else
-		printf("%s", va_arg(va_args, char *));
+		printf("%s", va_arg(addr_arg1, char *));
 		if (separator != NULL && i < n - 1)
 		printf("%s", separator);
 	}
 
 	printf("\n");
 
-	va_end(va_args);
+	va_end(addr_arg1);
 }
