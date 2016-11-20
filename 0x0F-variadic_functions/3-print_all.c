@@ -3,29 +3,38 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- * print_strings - print numbers
- * @separator: pointer to delimiter
- * @n: first argument
+ * print_all - print numbers
+ * @char: pointer to string
+ * @format: first argument
  * Return: void
  */
-void print_strings(const char *separator, const unsigned int n, ...)
+void print_all(const char * const format, ...)
 {
 
-	va_list va_args;
-	unsigned int i, j;
+	char *my_format;
+	unsigned int i;
 	char *str;
 
+
+	my_struct[] = {
+	  {"c", f_char},
+	  {"i", f_intb},
+	  {"f", f_float},
+	  {"s", f_string]}
+
+	va_list va_args;
 	va_start(va_args, n);
 
-	for (i = 0; i < n; i++)
-	{
-		str = va_arg(va_args, int);
+	my_format = format;
 
-		j = 0;
-		while (str[j] != '\0' && separator != NULL)
-		{
-		printf("%c", str[j];
-		j++;
+	for (i = 0; i < 4; i++) 
+	{
+
+		if my_format[i] != '\0' && (*my_format + i) != format[0])
+
+
+		my_struct[i].f;
+
 		};
 
 	}
