@@ -18,7 +18,7 @@ void print_string(va_list ptr_arg1, char *separator)
 	printf("%s%s", separator, swap);
 }
 /**
- *print_int - an int
+ *print_int - print an int
  *@ptr_arg1: ptr to arg1
  *@separator: a separator
  */
@@ -45,8 +45,8 @@ void print_char(va_list ptr_arg1, char *separator)
 	printf("%s%c", separator, va_arg(ptr_arg1, int));
 }
 /**
- *print_all - all
- *@format: a string
+ *print_all - print all
+ *@format: ptr to a string
  */
 void print_all(const char * const format, ...)
 {
