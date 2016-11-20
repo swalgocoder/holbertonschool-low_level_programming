@@ -13,7 +13,7 @@ void print_string(va_list ptr_arg1, char *separator)
 	swap_str = va_arg(ptr_arg1, char *);
 	if (swap_str == NULL)
 	{
-		swap_str = "(nil)";
+			swap_str = "(nil)";
 	}
 	printf("%s%s", separator, swap_str);
 }
