@@ -1,60 +1,77 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
- * print_all - print numbers
- * @char: pointer to string
- * @format: first argument
- * Return: void
+ *print_string - a string
+ *@ptr_arg1: ptr to arg1
+ *@separator: separator
+ */
+void print_string(va_list ptr_arg1, char *separator)
+{
+	if (ptr_arg1 == NULL)
+		printf("nil");
+	printf("%s%s", separator, va_arg(ptr_arg1, char *));
+}
+/**
+ *print_int - an int
+ *@ptr_arg1: ptr to arg1
+ *@separator: a separator
+ */
+void print_int(va_list ptr_arg1, char *separator)
+{
+	printf("%s%d", separator, va_arg(ptr_arg1, int));
+}
+/**
+ *print_float - a float
+ *@ptr_arg1: ptr to arg1
+ *@separator: a separator
+ */
+void print_float(va_list ptr_arg1, char *separator)
+{
+	printf("%s%f", separator, va_arg(ptr_arg1, double));
+}
+/**
+ *print_char -  a character
+ *@ptr: ptr to arg1
+ *@separator: a separator
+ */
+void print_char(va_list ptr_arg1, char *separator)
+{
+	printf("%s%c", separator, va_arg(ptr_arg1, int));
+}
+/**
+ *print_all - all
+ *@format: a string
  */
 void print_all(const char * const format, ...)
 {
+	print_arg_t print_arg[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+	};
+	va_list ptr_arg1;
+	unsigned int i, j;
+	char *separator;
 
-	char *my_format;
-	unsigned int i;
-	char *str;
-
-	typedef struct op
+	va_start(ptr_arg1, format);
+	i = 0;
+	separator = "";
+	while (format != NULL && format[i] != '\0')
 	{
-	  char *op;
-	  int (*f)(int a, int b);
-	} op_t;
-
-	int (*get_op_func(char *s))(int, int);
-
-	int op_add(int, int);
-	int op_sub(int, int);
-	int op_mul(int, int);
-	int op_div(int, int);
-	int op_mod(int, int);
-
-
-
-	opt my_struct[] = {
-	  {"c", f_char},
-	  {"i", f_intb},
-	  {"f", f_float},
-	  {"s", f_string]}
-
-	va_list va_args;
-	va_start(va_args, n);
-
-	my_format = format;
-
-	for (i = 0; i < 4; i++) 
-	{
-
-		if my_format[i] != '\0' && (*my_format + i) != format[0])
-
-
-		my_struct[i].f;
-
-		};
-
+		j = 0;
+		while (j < 4)
+		{
+			if (*print_arg[j].c == format[i])
+			{
+				print_arg[j].f(ptr_arg1, separator);
+				separator = ", ";
+			}
+			j++;
+		}
+		i++;
 	}
-
 	printf("\n");
-
-	va_end(va_args);
+	va_end(ptr_arg1);
 }
