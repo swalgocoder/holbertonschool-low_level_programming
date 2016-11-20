@@ -10,7 +10,9 @@ void print_string(va_list ptr_arg1, char *separator)
 {
 
 	if (ptr_arg1 == NULL)
-		printf("(nil)");
+	{
+		printf("nil");
+	}
 	printf("%s%s", separator, va_arg(ptr_arg1, char *));
 }
 /**
