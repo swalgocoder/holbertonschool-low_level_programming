@@ -50,12 +50,6 @@ void print_char(va_list ptr_arg1, char *separator)
  */
 void print_all(const char * const format, ...)
 {
-	typedef struct print_arg
-	{
-	char *my_c;
-	void (*f)();
-	} print_arg_t;
-
 	print_arg_t print_arg[] = {
 			{"c", print_char},
 			{"i", print_int},
