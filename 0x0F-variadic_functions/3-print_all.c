@@ -4,21 +4,22 @@
 /**
  *print_string - a string
  *@ptr_arg1: ptr to arg1
- *@separator: pointer separator
+ *@separator: separator
  */
 void print_string(va_list ptr_arg1, char *separator)
 {
-	char *swap;
+	char *swap_str;
 
-	swap = va_arg(ptr_arg1, char *);
-	if (swap == NULL)
+	swap_str = va_arg(ptr_arg1, char *);
+	
+	if (swap_str == NULL)
 	{
-		swap = "(nil)";
+		swap_str = "(nil)";
 	}
-	printf("%s%s", separator, swap);
+	printf("%s%s", separator, swap_str);
 }
 /**
- *print_int - print an int
+ *print_int - an int
  *@ptr_arg1: ptr to arg1
  *@separator: a separator
  */
@@ -45,22 +46,16 @@ void print_char(va_list ptr_arg1, char *separator)
 	printf("%s%c", separator, va_arg(ptr_arg1, int));
 }
 /**
- *print_all - print all
- *@format: ptr to a string
+ *print_all - all
+ *@format: a string
  */
 void print_all(const char * const format, ...)
 {
-	typedef struct print_arg
-	{
-	char *c;
-	void (*f)();
-	} print_arg_t;
-
 	print_arg_t print_arg[] = {
-			{"c", print_char},
-			{"i", print_int},
-			{"f", print_float},
-			{"s", print_string}
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
 	};
 	va_list ptr_arg1;
 	unsigned int i, j;
@@ -74,7 +69,7 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (j < 4)
 		{
-			if (*print_arg[j].my_c == format[i])
+			if (*print_arg[j].c == format[i])
 			{
 				print_arg[j].f(ptr_arg1, separator);
 				separator = ", ";
