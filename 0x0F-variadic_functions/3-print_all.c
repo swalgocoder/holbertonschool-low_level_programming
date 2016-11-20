@@ -36,7 +36,7 @@ void print_float(va_list ptr_arg1, char *separator)
 	printf("%s%f", separator, va_arg(ptr_arg1, double));
 }
 /**
- *print_char -  a character
+ *print_char - a character
  *@ptr: ptr to arg1
  *@separator: a separator
  */
