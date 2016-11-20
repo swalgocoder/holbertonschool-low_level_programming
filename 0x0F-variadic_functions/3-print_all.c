@@ -6,7 +6,7 @@
  *@ptr_arg1: ptr to arg1
  *@separator: separator
  */
-void print_string(va_list ptr_arg1)
+void print_string(va_list ptr_arg1, char *separator)
 {
 	char *swap_str;
 
@@ -16,7 +16,7 @@ void print_string(va_list ptr_arg1)
 	{
 		swap_str = "(nil)";
 	}
-	printf("%s", swap_str);
+	printf("%s%s", separator, swap_str);
 }
 /**
  *print_int - an int
