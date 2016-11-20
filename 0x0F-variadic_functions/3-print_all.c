@@ -51,10 +51,10 @@ void print_char(va_list ptr_arg1, char *separator)
 void print_all(const char * const format, ...)
 {
 	print_arg_t print_arg[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string}
+			{"c", print_char},
+			{"i", print_int},
+			{"f", print_float},
+			{"s", print_string}
 	};
 	va_list ptr_arg1;
 	unsigned int i, j;
