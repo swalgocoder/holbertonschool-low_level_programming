@@ -58,7 +58,7 @@ void print_all(const char * const format, ...)
 		{"s", print_string}
 	};
 
-	char *check_format;
+
 	unsigned int i, j;
 	char *separator;
 	
@@ -66,15 +66,14 @@ void print_all(const char * const format, ...)
 	va_start(ptr_arg1, format);
 
 	i = 0;
-	check_format = format;
 	separator = "";
 	
-	while (check_format != NULL && check_format[i] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 		j = 0;
 		while (j < 4)
 		{
-			if (*print_arg[j].c == check_format[i])
+			if (*print_arg[j].c == format[i])
 			{
 				print_arg[j].f(ptr_arg1, separator);
 				separator = ", ";
