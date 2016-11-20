@@ -8,9 +8,11 @@
  */
 void print_string(va_list ptr_arg1, char *separator)
 {
-	if (ptr_arg1 == NULL)
-		printf("nil");
-	printf("%s%s", separator, va_arg(ptr_arg1, char *));
+	char *swap_str;
+	swap_str = (va_list ptr_arg1, char *separator);
+	if (swap_str == NULL)
+		swap_str = "(nil)";
+	printf("%s", swap_str);
 }
 /**
  *print_int - an int
