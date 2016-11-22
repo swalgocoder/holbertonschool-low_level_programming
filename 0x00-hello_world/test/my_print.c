@@ -1,24 +1,16 @@
 #include "holberton.h"
 #include <stdarg.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-//#include <string.h>                                                                                             
+                                                                            
 // Function declarations                                                                                          
 // typedef __w64 unsigned int size_t                                                                              
 size_t strlen(const char *);
 char *strrev(char *);
 char *itoa(int, char *, int);
-int main() {
-  int num = 123;
-  char buf[5];
-  itoa(num, buf, 10);
-  printf("%s\n", buf);
-  return 0;
-}
+
 size_t strlen(const char *string) {
   const char *s;
   s = string;
@@ -58,7 +50,7 @@ char *itoa(int n, char *s, int b) {
 void _fputs(char *str)
 {
 
-  int count, str_count;
+  int count, count2, str_count;
   char buffer[5];
 
 
@@ -70,13 +62,16 @@ void _fputs(char *str)
     }
   str_count = count;
 
-  *my_itoa(str_count,buffer);
+  itoa(str_count,buffer,10);
 
-  printf("length:%s\n",buffer);
+  count2 = 0;
+  
+    while (buffer[count2] != '\0')
+    {
+      _putchar(buffer[count2]);
+      count2++;
+    }
 
- 
-  _putchar(str_count);
-}
 
 
 void main ()
