@@ -1,0 +1,60 @@
+char *_RTLENTRYF _EXPFUNC itoa( int value, char *strP, int radix )
+{
+#define dword   unsigned long
+
+  return  __longtoa ((radix == 10) ? (long) value :
+		     (dword)((unsigned)value), strP, radix, (radix == 10),
+		     'a');
+}
+
+char * __longtoa (long value, char *strP, int radix,
+		  char maybeSigned, char hexStyle)
+{
+  char    buf [34];
+  char    c, *p, *bufp;
+    
+  p = strP;
+
+  /* If the requested radix is invalid, generate an empty result.
+   */
+  if (radix >= 2 && radix <= 36)
+    {
+
+      /* If the value is signed and less than zero, generate a minus sign.
+       */
+      if (value < 0 && maybeSigned != 0)
+        {
+	  *p++ = '-';
+	  value = -value;
+        }
+
+      /* Now loop, taking each digit as modulo radix, and reducing the value
+       * by dividing by radix, until the value is zeroed.  Note that
+       * at least one loop occurs even if the value begins as 0,
+       * since we want "0" to be generated rather than "".
+       */
+      bufp = buf;
+      for (;;)
+        {
+	  *bufp++ = (char)((unsigned long)value % radix);
+	  if ((value = (unsigned long)value / radix) == 0)
+	    break;
+        }
+
+      /* The digits in the buffer must now be copied in reverse order into
+       * the target string, translating to ASCII as they are moved.
+       */
+      while (bufp != buf)
+        {
+	  if ((c = *--bufp) < 10)
+	    *p++ = (char)(c + '0');
+	  else
+	    *p++ = (char)((c - 10) + hexStyle);
+        }
+    }
+
+  /* terminate the output string with a zero.
+   */
+  *p = '\0';
+  return (strP);          /* return a pointer to the string */
+}

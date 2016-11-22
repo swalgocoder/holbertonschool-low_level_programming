@@ -1,0 +1,51 @@
+#include "holberton.h"
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char *my_itoa(int num, char *str)
+{
+  if(str == NULL)
+    {
+      return NULL;
+    }
+  sprintf(str, "%d", num);
+  return str;
+}
+
+
+
+void _fputs(char *str)
+{
+
+  int count, str_count;
+  char buffer[5];
+
+
+  count = 0;
+  while (str[count] != '\0')
+    {
+      _putchar(str[count]);
+      count++;
+    }
+  str_count = count;
+
+  *my_itoa(str_count,buffer);
+
+  printf("length:%s\n",buffer);
+
+ 
+  _putchar(str_count);
+}
+
+
+void main ()
+{
+
+  char str[] = "Hello World!";
+
+_fputs(str);
+}

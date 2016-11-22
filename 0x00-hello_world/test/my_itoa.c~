@@ -1,0 +1,36 @@
+include "holberton.h"
+#include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+char *itos(char *s,int i)
+{ char *r = s;
+  int t;
+  if (i < 0)
+    { i = -i;
+      *s++ = '-';
+    }
+  t = i;
+  do ++s; while (t /= 10);
+  *s = '\0';
+  do *--s = '0' + i % 10; while (i /= 10);
+  return r;
+}
+
+
+
+void main ()
+{
+  char buffer[1];
+
+  *itos(buffer, 8);
+
+
+  _putchar(buffer);
+
+
+
+}
