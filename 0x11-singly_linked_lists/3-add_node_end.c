@@ -3,38 +3,38 @@
 #include "lists.h"
 
 /**
- * add_node_end - add node at end
- * @head: linked list to add to
- * @str: str to cpy
+ * add_node_end - add node at end of list
+ * @head: linked list from caller to be add to
+ * @str: str from caller to cpy
  * Return: new node
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node, *temp;
+	list_t *new_node_2add, *swap;
 	int i;
 
-	new_node = malloc(sizeof(list_t));
-	if (new_node == NULL)
+	new_node_2add = malloc(sizeof(list_t));
+	if (new_node_2add == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 		;
-	new_node->str = strdup(str);
-	new_node->len = i;
-	new_node->next = NULL;
-	temp = *head;
+	new_node_2add->str = strdup(str);
+	new_node_2add->len = i;
+	new_node_2add->next = NULL;
+	swap = *head;
 	if (*head == NULL)
 	{
-		*head = new_node;
+		*head = new_node_2add;
 		return (*head);
 	}
 	else
 	{
-		while (temp->next != NULL)
+	for (swap = *head; swap->next != NULL; swap = swap->next)
 		{
-			temp = temp->next;
+			
 		}
-		temp->next = new_node;
+		swap->next = new_node_2add;
 	}
-	temp = temp->next;
-	return (temp);
+	swap = swap->next;
+	return (swap);
 }
