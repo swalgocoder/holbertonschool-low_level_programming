@@ -9,9 +9,11 @@ void free_list(list_t *head)
 {
 	list_t *swap;
 
-	for (swap = head; head != NULL; head = head->next)
+	while (head != NULL)
 	{
-		free(swap->str);
-		free(swap);
+	swap = head;
+	head = head->next;
+	free(swap->str);
+	free(swap);
 	}
 }
