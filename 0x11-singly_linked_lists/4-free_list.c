@@ -9,11 +9,8 @@ void free_list(list_t *head)
 {
 	list_t *swap;
 
-	for (swap = head; head == NULL; head = head->next)
+	for (swap = head; head != NULL; head = head->next)
 	{
-/* store the head in a swap variable */
-/* make head point to the next node on the list */
-/* free(swap->str), free(swap)*/
 		free(swap->str);
 		free(swap);
 	}
