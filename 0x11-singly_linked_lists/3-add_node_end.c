@@ -34,5 +34,5 @@ list_t *add_node_end(list_t **head, const char *str)
 	swap->next = new_node_2add;
 	}
 	swap = swap->next;
-	return (swap);
+	return (new_node_2add);
 }
