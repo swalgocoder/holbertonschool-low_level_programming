@@ -1,47 +1,43 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
 
 /**
- *delete_nodeint_at_index - deletes the node via index
- *@head: pointer to pointer to head
- *@index: index position of the list where new node to be deleted
- *Return: 1 if it succeeded, -1 if failed
+ * delete_nodeint_at_index - deletes the node via index of list
+ * @head: pointer to list
+ * @index: the index position of the node to be deleted
+ * Return: 1 if succeeded, -1 if failed
  */
-
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *temp_node, *current;
+	listint_t *loop, *prev_node;
 	unsigned int i;
 
-
-	current = *head;
-
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 		return (-1);
 
+	loop = *head;
 
-	if (index == 0)
+	for (i = 0; loop != NULL; loop = loop->next, ++i)
+		;
+
+	if (index > i)
+		return (-1);
+
+	loop = *head;
+
+	if (index != 0)
 	{
-		temp_node = current->next;
-		current = current->next;
-		*head = current;
-		free(temp_node);
-		return (1);
+		for (i = 0; i < index;
+		     prev_node = loop, loop = loop->next, ++i)
+			;
+
+		prev_node->next = loop->next;
+		free(loop);
 	}
-
-
-	for (i = 0; i < (index - 1) && current != NULL; current = current->next)
+	else
 	{
-		i++;
+		*head = (*head)->next;
+		free(loop);
 	}
-
-	if (i == (index - 1))
-	{
-		temp_node = current->next;
-		current->next = temp_node->next;
-		free(temp_node);
-		return (1);
-	}
-	return (-1);
+	return (1);
 }
