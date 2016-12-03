@@ -43,6 +43,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 	}
 
 	new_node->next = swap->next;
-
+	swap->next = new_node;
 	return (new_node);
 }
