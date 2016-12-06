@@ -1,11 +1,9 @@
-#include <stdio.h>
 #include "holberton.h"
 /**
  * binary_to_uint - binary to unsigned int
  * @b: ptr to char str
  * Return: unsigned int
  */
-unsigned int binary_to_uint(const char *b)
 unsigned int binary_to_uint(const char *b)
 {
 	int i, str_len;
