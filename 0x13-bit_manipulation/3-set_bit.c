@@ -7,12 +7,12 @@
   */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int num;
+	unsigned long int my_num;
 
 	if (index > 64)
 		return (-1);
 
-	number = 1 << index;
-	*n = *n | number;
+	my_num = 1 << index;
+	*n = *n | my_num;
 	return (1);
 }
