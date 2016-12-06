@@ -6,28 +6,27 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int i, str_len;
-	unsigned int uint, binary_multi;
+	int len;
+	unsigned int sum, multi;
 
-	/* check if char * is valid */
+
 	if (b == NULL)
 		return (0);
-	for (str_len = 0; b[str_len] != '\0'; str_len++)
+	for (len = 0; b[len] != '\0'; len++)
 	{
-		if (b[str_len] != '0' && b[str_len] != '1')
+		if (b[len] != '0' && b[len] != '1')
 			return (0);
 	}
+	len--;
+	sum = 0;
+	multi = 1;
 
-	/* convert char * to Binary */
-	uint = 0;
-	binary_multi = 1;
-	i = str_len - 1;
-	while (i >= 0)
+	while (len >= 0)
 	{
-		if (b[i] == '1')
-			uint += binary_multi;
-		i--;
-		binary_multi *= 2;
+		if (b[len] == '1')
+			sum += multi;
+		len--;
+		multi *= 2;
 	}
-	return (uint);
+	return (sum);
 }
