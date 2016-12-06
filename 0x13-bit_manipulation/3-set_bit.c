@@ -6,7 +6,11 @@
   */
 int set_bit(unsigned long int *n, unsigned int index)
 {
+	unsigned long int bit2add = 1;
 
-	n |= (1<<index)
-	return (0);
+	bit2add <<= index;
+	if (index > 63)
+		return (-1);
+	*n = (*n | addbit);
+	return (1);
 }
