@@ -9,8 +9,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int bit2add;
 
-	bit2add = 1;
-	bit2add <<= index;
+	bit2add |= (1 << index);
 	if (index > 63)
 	return (-1);
 	*n = (*n | bit2add);
