@@ -5,29 +5,31 @@
  * @b: ptr to char str
  * Return: unsigned int
  */
-
+unsigned int binary_to_uint(const char *b)
 unsigned int binary_to_uint(const char *b)
 {
-  unsigned int sum;
-  int len,multipl;
+	int i, str_len;
+	unsigned int uint, binary_multi;
 
-  
-  if (b == NULL)
-	return (0);
-
-	for (len = 0; b[len] != 0; len++);
-	len--;
-
-	multipl = 1;
-	while (b[len])
-	{
-
-		if (b[len] != '0' && b[len] != '1')
+	/* check if char * is valid */
+	if (b == NULL)
 		return (0);
-		if (b[len] == '1')
-		sum += multipl;
-		multipl *=2;
-		len--;
+	for (str_len = 0; b[str_len] != '\0'; str_len++)
+	{
+		if (b[str_len] != '0' && b[str_len] != '1')
+			return (0);
 	}
-	return (sum);
+
+	/* convert char * to Binary */
+	uint = 0;
+	binary_multi = 1;
+	i = str_len - 1;
+	while (i >= 0)
+	{
+		if (b[i] == '1')
+			uint += binary_multi;
+		i--;
+		binary_multi *= 2;
+	}
+	return (uint);
 }
