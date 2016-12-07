@@ -1,10 +1,9 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * set_bit - toggles the bit as indexed
  * @n: number
  * @index: index postion of bit
- * Return: 1 on success, -1 on fail.
+ * Return: 1 on success, -1 on fail
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
