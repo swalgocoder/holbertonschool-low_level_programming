@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * binary_to_uint - binary to unsigned int
  * @b: ptr to char str
