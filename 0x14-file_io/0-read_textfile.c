@@ -26,7 +26,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	while ((in_c = read(fd, buffer, letters)) > 0 && (size_t)out_c < letters)
 	{
-	i = write(STDOUT_FILENO, buffer, (ssize_t)in_c);
+	i = write(1, buffer, (ssize_t)in_c);
 		if (i == -1)
 		{
 			close(fd);
