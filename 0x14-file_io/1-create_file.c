@@ -15,7 +15,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-  int file_handle, file_proc, i;
+	int file_handle, file_proc, i, error;
 
 	if (filename == NULL)
 		return (-1);
@@ -34,9 +34,12 @@ int create_file(const char *filename, char *text_content)
 			;
 		file_proc = write(file_handle, text_content, i);
 
-	close(file_handle);
+	error = close(file_handle);
+	if (error == -1)
+	return (0);
 
 	if (file_proc == -1)
 	return (0);
+
 	return (1);
 }
