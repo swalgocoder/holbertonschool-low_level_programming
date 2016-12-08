@@ -13,7 +13,6 @@ int open_file(const char *filename)
 
 	return (fd);
 }
-#include "holberton.h"
 /**
  * read_textfile - read a text file & print  to stdout
  * @filename: pointer to filename to read
