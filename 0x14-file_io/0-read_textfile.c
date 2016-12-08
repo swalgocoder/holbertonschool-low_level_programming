@@ -20,7 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
   ssize_t file_in, file_out;
 
 
-  buffer = malloc(sizeof(*buffer) * letters);
+  buffer = malloc(sizeof(char) * letters);
 
   if (buffer == NULL)
     return (0);
@@ -53,5 +53,5 @@ error = close(file_opn);
  
     free(buffer);
 
-    return (file_out);
+    return (file_in);
 }
