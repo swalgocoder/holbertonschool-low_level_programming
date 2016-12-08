@@ -30,7 +30,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
   if ((file_handle = read(file_opn, buffer, letters)) < 0)
       return (0);
-     
+
+  file_handle = read(file_opn, buffer, letters);
+  
   for (i = 0; buffer[i] != file_handle; i++)
     _putchar(buffer[i]);
 
