@@ -1,57 +1,44 @@
-#include "holberton.h"
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include "holberton.h"
+
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-/**
- * read_textfile -  use _putchar to print char array
- * @filename: pointer to char array or file name
- * @letters: the actual number of letters
- * Return: the actual number of letters it could read and print
- * if the file can not be opened or read, return 0
- * if filename is NULL return 0
+ * read_textfile - read & write textfile
+ * @filename: pointer to file
+ * @letters: num of characters to write
+ * Return: num of characters written out
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+  int file_handle, i, error;
+	int file_in_cnt = 0, file_out_cnt = 0;
 	char *buffer = malloc(sizeof(char) * letters);
-	int file_opn;
-	ssize_t file_in_cnt, i, error;
 
 	if (filename == NULL)
-	return (0);
-	
-	file_opn = open(filename, O_RDONLY);
-	if (file_opn == -1)
-	return (0);
+		return (0);
+	file_handle = open(filename, O_RDONLY);
+	if (file_handle == -1)
+		return (0);
 
-	file_in_cnt = read(file_opn, buffer, letters);
+	if (buffer == NULL)
+		return (0);
+	while ((file_in_cnt = read(file_handle, buffer, letters)) > 0 && (size_t)file_out_cnt < letters)
+	{
+		i = write(STDOUT_FILENO, buffer, (ssize_t)file_in_cnt);
+		if (i == -1)
+		{
+			close(file_handle);
+			free(buffer);
+			return (0);
+		}
+		file_out_cnt += i;
+	}
+	error = close(file_handle);
 	if (file_in_cnt == -1)
-	{
-	free(buffer);
-	return (0);
-	}
-
-	for (i = 0; i < file_in_cnt; i++)
-	_putchar(buffer[i]);
-
-	error = close(file_opn);
+		return (0);
 	if (error == -1)
-	{
+		return (0);
 	free(buffer);
-	return (0);
-	}
-	
-	free(buffer);
-	return (i);
+	return (file_out_cnt);
 }
