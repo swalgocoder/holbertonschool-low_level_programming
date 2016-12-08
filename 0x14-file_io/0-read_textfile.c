@@ -22,18 +22,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
   int file_opn, file_handle, i;
 
 
-  if((file_opn = open(filename, O_RDWR)) < 0)
-     return (0);
-
   if (filename == NULL)
     return (0);
+
+  if((file_opn = open(filename, O_RDWR)) < 0)
+     return (0);
 
   if ((file_handle = read(file_opn, buffer, letters)) < 0)
       return (0);
 
+  file_opn = open(filename, O_RDWR);
   file_handle = read(file_opn, buffer, letters);
   
-  for (i = 0; buffer[i] != file_handle; i++)
+  for (i = 0; i < file_handle; i++)
     _putchar(buffer[i]);
 
   close (file_opn);
