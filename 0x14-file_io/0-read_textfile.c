@@ -18,22 +18,36 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-  char *buffer = malloc(sizeof(char) * letters);
+  char *buffer;
   int file_opn;
-  size_t file_handle = 0, file_out = 0;
+  size_t file_handle, file_out;
 
 
+  buffer = malloc(sizeof(*buffer) * letters);
+
+  if (buffer == NULL)
+    return (0);
+    
   if (filename == NULL)
     return (0);
 
-  if((file_opn = open(filename, O_RDONLY)) < 0)
-     return (0);
+  file_opn = open(filename, O_RDONLY);
+
+if (file_opn == -1)
+    return (0);
+  
 
 
-  while ((file_handle = read(file_opn, buffer, letters)) > 0 && file_out < letters)
-    file_out += write(1, buffer, (ssize_t)file_handle);
 
-  close (file_opn);
-      free(buffer);
-  return (file_out);
+file_handle = read(file_opn, buffer, letters);
+
+  if (file_handle > 0)
+    file_out = write(1, buffer, file_handle);
+
+
+
+close(file_opn);
+
+    free(buffer);
+    return (file_out);
 }
