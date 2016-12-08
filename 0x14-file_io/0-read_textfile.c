@@ -28,7 +28,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
   if((file_opn = open(filename, O_RDONLY)) < 0)
      return (0);
 
-  if ((file_handle = read(file_opn, buffer, letters)) < 0)
+  if ((file_handle = read(file_opn, buffer, letters)) <= 0)
       return (0);
 
   for (i = 0; i < file_handle; i++)
