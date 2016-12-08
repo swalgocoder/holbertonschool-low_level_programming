@@ -21,9 +21,9 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (-1);
 	if (!text_content)
 		return (1);
-
-	for (len = 0; *(text_content + len) != '\0'; ++len)
-		;
+	len = 0;
+	while (*(text_content + len) != '\0')
+		len++;
 	file_process = write(file_handle, text_content, len);
 	close(file_handle);
 	if (file_process < 0)
