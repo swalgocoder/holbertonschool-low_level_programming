@@ -1,10 +1,13 @@
 #include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 /**
  * open_file - open a file
  * @filename: pointer to filename
  * Return: 0 on failure
  */
-
 int open_file(const char *filename)
 {
 	int fd;
