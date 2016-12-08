@@ -11,34 +11,35 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file_handle, i, error;
-	int file_in_cnt = 0, file_out_cnt = 0;
+	int fd, i, error;
+	int in_c = 0, out_c = 0;
 	char *buffer = malloc(sizeof(char) * letters);
 
 	if (filename == NULL)
 		return (0);
-	file_handle = open(filename, O_RDONLY);
-	if (file_handle == -1)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 		return (0);
 
 	if (buffer == NULL)
 		return (0);
-	while ((file_in_cnt = read(file_handle, buffer, letters)) > 0 && (size_t)file_out_cnt < letters)
+
+	while ((in_c = read(fd, buffer, letters)) > 0 && (size_t)out_c < letters)
 	{
-		i = write(STDOUT_FILENO, buffer, (ssize_t)file_in_cnt);
+	i = write(STDOUT_FILENO, buffer, (ssize_t)in_c);
 		if (i == -1)
 		{
-			close(file_handle);
+			close(fd);
 			free(buffer);
 			return (0);
 		}
-		file_out_cnt += i;
+		out_c += i;
 	}
-	error = close(file_handle);
-	if (file_in_cnt == -1)
+	error = close(fd);
+	if (in_c == -1)
 		return (0);
 	if (error == -1)
 		return (0);
 	free(buffer);
-	return (file_out_cnt);
+	return (out_c);
 }
