@@ -23,8 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (buffer == NULL)
 		return (0);
-	file_in_cnt = read(file_handle, buffer, letters);
-	while (file_in_cnt > 0 && (size_t)file_out_cnt < letters)
+	while ((file_in_cnt = read(file_handle, buffer, letters)) > 0 && (size_t)file_out_cnt < letters)
 	{
 		i = write(STDOUT_FILENO, buffer, (ssize_t)file_in_cnt);
 		if (i == -1)
