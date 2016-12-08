@@ -19,7 +19,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (filename == NULL)
 		return (-1);
-	if ((file_handle = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR)) == -1)
+	file_handle = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+if (file_handle == -1)
 	{
 		close(file_handle);
 		return (-1);
