@@ -32,26 +32,27 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 if (file_opn == -1)
     return (0);
-  
 
+	file_in = read(file_opn, buffer, letters);
+	if (file_in == -1)
+	{
+	free(buffer);
+	return (0);
+	}
+	file_out = write(1, buffer, file_in);
+	if (file_out == -1)
+	{
+	free(buffer);
+	return (0);
+	}
 
+	error = close(file_opn);
 
-file_in = read(file_opn, buffer, letters);
- if (file_in == -1)
-   return (0);
- 
-    file_out = write(1, buffer, file_in);
-
-    if (file_out == -1)
-   return (0);
-
-
-error = close(file_opn);
-
- if (error == -1)
-   return (0);
- 
-    free(buffer);
-
-    return (file_in);
+	if (error == -1)
+	{
+	free(buffer);
+	return (0);
+	}
+	free(buffer);
+	return (file_out);
 }
