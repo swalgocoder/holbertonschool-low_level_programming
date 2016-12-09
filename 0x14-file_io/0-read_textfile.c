@@ -21,7 +21,7 @@ int open_file(const char *filename)
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t cls_msg, iocount;
+	ssize_t write_msg, cls_msg, iocount;
 	char *buf = malloc(sizeof(*buf) * letters);
 
 	if (buf == NULL)
@@ -40,11 +40,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buf); return (0);
 
 	if (iocount > 0)
-		iocount = write(STDOUT_FILENO, buf, iocount);
+		write_msg = write(STDOUT_FILENO, buf, iocount);
 
-	if (iocount == -1)
-		free(buf); return (0);
-
+	if (write_msg < iocount)
+	{	
+		free(buf);
+		return(0);
+	}
 	cls_msg = close(fd);
 	if (cls_msg == -1)
 	{
