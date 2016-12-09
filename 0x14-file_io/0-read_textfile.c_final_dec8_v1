@@ -12,8 +12,8 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd, i, error;
-	int in_c = 0, out_c = 0;
-	char *buffer = malloc(sizeof(char) * letters);
+	int incnt = 0, outcnt = 0;
+	char *buf = malloc(sizeof(char) * letters);
 
 	if (filename == NULL)
 		return (0);
@@ -21,25 +21,24 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	if (buffer == NULL)
+	if (buf == NULL)
 		return (0);
-
-	while ((in_c = read(fd, buffer, letters)) > 0 && (size_t)out_c < letters)
+	while ((incnt = read(fd, buf, letters)) > 0 && (size_t)outcnt < letters)
 	{
-	i = write(1, buffer, (ssize_t)in_c);
+		i = write(STDOUT_FILENO, buf, (ssize_t)incnt);
 		if (i == -1)
 		{
 			close(fd);
-			free(buffer);
+			free(buf);
 			return (0);
 		}
-		out_c += i;
+		outcnt += i;
 	}
 	error = close(fd);
-	if (in_c == -1)
+	if (incnt == -1)
 		return (0);
 	if (error == -1)
 		return (0);
-	free(buffer);
-	return (out_c);
+	free(buf);
+	return (outcnt);
 }
