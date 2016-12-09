@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include "holberton.h"
 /**
  * open_file - open file
  * @filename: pointer to file
@@ -28,7 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (buf == NULL)
 		return (0);
 
-	if (filename == NULL)
+	if (!filename)
 		return (0);
 	fd = open_file(filename);
 	if (fd == -1)
