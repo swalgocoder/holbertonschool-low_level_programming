@@ -1,0 +1,80 @@
+#include "holberton.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdio.h>
+#define BUFRSIZE 1204
+
+/**
+* check_file - copies the content of a file to another file
+* @f_from: file to copy from
+* @f_to: file to copy to
+* Return: void, exit on failure
+**/
+void check_file(const char *f_from, char *f_to)
+{
+	ssize_t count, count_out;
+	int f_f, f_t, ff_cls, ft_cls;
+	char buffer[BUFRSIZE];
+
+	f_f = open(f_from, O_RDONLY);
+	if (f_f == -1)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", f_from);
+		exit(98);
+	}
+	f_t = open(f_to, O_WRONLY | O_CREAT, 00664);
+	if (f_t == -1)
+		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", f_to), exit(99);
+	count = 1;
+	while (count > 0)
+	{
+		count = read(f_f, buffer, BUFRSIZE);
+		if (count == -1);
+		{
+			dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", f_from);
+			exit(98);
+		}
+		count_out = write(f_t, buffer, count);
+		if (count_out == -1 || count_out != count)
+		{
+			dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", f_to);
+			exit(99);
+		}
+	}
+	ff_cls = close(f_f);
+	if (ff_cls == -1)
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", ff_cls), exit(100);
+	ft_cls = close(f_t);
+	if (ft_cls == -1)
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d\n", ft_cls2, exit(100);
+}
+
+/**
+* main - copies the content of a file to another file
+* @argc: number of arguements
+* @argv: pointer to arguement
+* Return: 0 on success, or exit with error message
+**/
+int main(int argc, char **argv)
+{
+	if (argc != 3)
+	{
+		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	if(argv[1] == NULL)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", f_from);
+                exit(98);
+	}
+	if (argv[2] == NULL)
+	{
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", f_to);
+                exit(99);
+	}
+	check_file(argv[1], argv[2]);
+	return (0);
+}
