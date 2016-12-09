@@ -43,14 +43,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		write_msg = write(STDOUT_FILENO, buf, iocount);
 
 	if (write_msg < iocount)
-	{	
-		free(buf);
-		return(0);
-	}
+		free(buf); return(0);
+
 	cls_msg = close(fd);
 	if (cls_msg == -1)
-	{
 		free(buf); return (0);
-	}
 	free(buf); return (iocount);
 }
