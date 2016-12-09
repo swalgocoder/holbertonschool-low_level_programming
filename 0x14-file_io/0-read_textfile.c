@@ -11,7 +11,7 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, i, error;
+	int fd, i;
 	int in_c = 0, out_c = 0;
 	char *buffer = malloc(sizeof(char) * letters);
 
@@ -35,10 +35,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		}
 		out_c += i;
 	}
-	error = close(fd);
+	i = close(fd);
 	if (in_c == -1)
 		return (0);
-	if (error == -1)
+	if (i == -1)
 		return (0);
 	free(buffer);
 	return (out_c);
