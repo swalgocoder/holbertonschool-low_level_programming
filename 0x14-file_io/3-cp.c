@@ -27,35 +27,35 @@ void error_check(int argc, char *file1, char *file2)
 
 int main(int argc, char **argv)
 {
-	int fdr, fdw, err, bytes;
-	char buf[BUFFERSIZE];
+	int f_2read, f_2write, err, bytes;
+	char buffer[BUFFERSIZE];
 	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
 	error_check(argc, argv[1], argv[2]);
-	fdr = open(argv[1], O_RDONLY);
-	if (fdr == -1)
+	f_2read = open(argv[1], O_RDONLY);
+	if (f_2read == -1)
 		dprintf(STDERR_FILENO, "Error:Can't read from file %s\n", argv[1]), exit(98);
-	fdw = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
-	if (fdw == -1)
+	f_2write = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	if (f_2write == -1)
 		dprintf(STDERR_FILENO, "Can't write to %s\n", argv[2]), exit(99);
 	err = bytes = 1;
 	while (bytes)
 	{
-		bytes = read(fdr, buf, BUFFERSIZE);
+		bytes = read(f_2read, buffer, BUFFERSIZE);
 		if (bytes == -1)
 			dprintf(STDERR_FILENO, "Can't read from file %s\n", argv[1]), exit(98);
 		if (bytes > 0)
 		{
-			err = write(fdw, buf, bytes);
+			err = write(f_2write, buffer, bytes);
 			if (err == -1)
 				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 		}
 	}
-	err = close(fdr);
+	err = close(f_2read);
 	if (err == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdr), exit(100);
-	err = close(fdw);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_2read), exit(100);
+	err = close(f_2write);
 	if (err == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdw), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_2write), exit(100);
 	return (0);
 }
