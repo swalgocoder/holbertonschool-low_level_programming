@@ -7,6 +7,7 @@
 int open_file(const char *filename)
 {
 	int fd;
+
 	fd = open(filename, O_RDONLY);
 	return (fd);
 }
@@ -30,7 +31,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		free(buf); return (0);
 
 	open_file(filename);
-		  
+
 	if (fd == -1)
 		free(buf); return (0);
 
