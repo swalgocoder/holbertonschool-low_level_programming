@@ -21,40 +21,34 @@ int open_file(const char *filename)
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t err, n;
-	char *buf = malloc(sizeof(char) * letters);
+	ssize_t cls_msg, iocount;
+	char *buf = malloc(sizeof(*buf) * letters);
 
 	if (buf == NULL)
-		return (0);
+		free(buf); return (0);
 
-	if (!filename)
-		return (0);
+	if (filename == NULL)
+		free(buf); return (0);
+
 	fd = open_file(filename);
-	if (fd == -1)
-	{
-		free(buf);
-		return (0);
-	}
 
-	n = read(fd, buf, letters);
-	if (n == -1)
+	if (fd == -1)
+		free(buf); return (0);
+
+	iocount = read(fd, buf, letters);
+	if (iocount == -1)
+		free(buf); return (0);
+
+	if (iocount > 0)
+		iocount = write(STDOUT_FILENO, buf, iocount);
+
+	if (iocount == -1)
+		free(buf); return (0);
+
+	cls_msg = close(fd);
+	if (cls_msg == -1)
 	{
-		free(buf);
-		return (0);
+		free(buf); return (0);
 	}
-	if (n > 0)
-		err = write(STDOUT_FILENO, buf, n);
-	if (err < n)
-	{
-		free(buf);
-		return (0);
-	}
-	err = close(fd);
-	if (err == -1)
-	{
-		free(buf);
-		return (0);
-	}
-	free(buf);
-	return (n);
+	free(buf); return (iocount);
 }
