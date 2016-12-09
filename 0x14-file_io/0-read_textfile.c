@@ -21,7 +21,7 @@ int open_file(const char *filename)
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t write_msg, cls_msg, iocount;
+	ssize_t io_msg, iocount;
 	char *buf = malloc(sizeof(*buf) * letters);
 
 	if (buf == NULL)
@@ -37,16 +37,24 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	iocount = read(fd, buf, letters);
 	if (iocount == -1)
-		free(buf); return (0);
-
+	{
+		free(buf);
+		return (0);
+	}
 	if (iocount > 0)
-		write_msg = write(STDOUT_FILENO, buf, iocount);
+		io_msg = write(STDOUT_FILENO, buf, iocount);
 
-	if (write_msg < iocount)
-		free(buf); return(0);
-
-	cls_msg = close(fd);
-	if (cls_msg == -1)
-		free(buf); return (0);
-	free(buf); return (iocount);
+	if (io_msg < iocount)
+	{
+		free(buf);
+		return (0);
+	}
+	io_msg = close(fd);
+	if (io_msg == -1)
+	{
+		free(buf);
+		return (0);
+	}
+	free(buf);
+	return (iocount);
 }
