@@ -1,47 +1,44 @@
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "holberton.h"
-/**
- * open_file - open a file
- * @filename: pointer to filename
- * Return: 0 on failure
- */
-int open_file(const char *filename)
-{
-	int fd;
 
-	fd = open(filename, O_RDONLY);
-
-	return (fd);
-}
 /**
- * read_textfile - read a text file & print  to stdout
- * @filename: pointer to filename to read
- * @letters: number of letters to output
- * Return: number of letters to print
+ * read_textfile - read & write textfile
+ * @filename: pointer to file
+ * @letters: num of characters to write
+ * Return: num of characters written out
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	ssize_t error, n;
-	char *buffer = malloc(sizeof(char) * letters);
-
-	if (buffer == NULL)
-		return (0);
+	int fd, i, error;
+	int incnt = 0, outcnt = 0;
+	char *buf = malloc(sizeof(char) * letters);
 
 	if (filename == NULL)
 		return (0);
-	fd = open_file(filename);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	return (0);
-	n = read(fd, buffer, letters);
-	if (n == -1)
 		return (0);
-	if (n > 0)
-		n = write(STDOUT_FILENO, buffer, n);
-	if (n == -1)
+
+	if (buf == NULL)
 		return (0);
+	while ((incnt = read(fd, buf, letters)) > 0 && (size_t)outcnt < letters)
+	{
+		i = write(STDOUT_FILENO, buf, (ssize_t)incnt);
+		if (i == -1)
+		{
+			close(fd);
+			free(buf);
+			return (0);
+		}
+		outcnt += i;
+	}
 	error = close(fd);
+	if (incnt == -1)
+		return (0);
 	if (error == -1)
 		return (0);
-	free(buffer);
-	return (n);
+	free(buf);
+	return (outcnt);
 }
