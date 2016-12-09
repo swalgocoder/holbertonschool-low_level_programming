@@ -1,19 +1,18 @@
 #include "holberton.h"
 
 /**
- * read_textfile - reads a text file and prints to POSIX stdout.
+ * read_textfile - reads file,prints to POSIX stdout.
  *
- * @filename: file to be opened and read.
- * @letters: number of letters it should read and print.
- * Return: returns the actual number of letters it could read.
+ * @filename: filename
+ * @letters: number of letters to read and print.
+ * Return: returns the number of letters readed.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t temp, count;
-	char *buf;
+	ssize_t cls_msg, iocount;
+	char *buf = malloc(sizeof(*buf) * letters);
 
-	buf = malloc(sizeof(*buf) * letters);
 	if (buf == NULL)
 		free(buf); return (0);
 
@@ -24,20 +23,20 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		free(buf); return (0);
 
-	count = read(fd, buf, letters);
-	if (count == -1)
+	iocount = read(fd, buf, letters);
+	if (iocount == -1)
 		free(buf); return (0);
 
-	if (count > 0)
-		count = write(STDOUT_FILENO, buf, count);
+	if (iocount > 0)
+		iocount = write(STDOUT_FILENO, buf, iocount);
 
-	if (count == -1)
+	if (iocount == -1)
 		free(buf); return (0);
 
-	temp = close(fd);
-	if (temp == -1)
+	cls_msg = close(fd);
+	if (cls_msg == -1)
 	{
 		free(buf); return (0);
 	}
-	free(buf); return (count);
+	free(buf); return (iocount);
 }
