@@ -1,10 +1,23 @@
 #include "holberton.h"
+#include "holberton.h"
 /**
- * read_textfile - read a text file and print it to stdout
- * @filename: filename to read from
- * @letters: number of letters to print
+ * open_file - open file
+ * @filename: pointer to file
+ * Return: int
+ */
+int open_file(const char *filename)
+{
+	int fd;
+
+	fd = open(filename, O_RDONLY);
+	return (fd);
+}
+/**
+ * read_textfile - reads file,prints to POSIX stdout.
  *
- * Return: number of letters to print
+ * @filename: filename
+ * @letters: number of letters to read and print.
+ * Return: returns the number of letters readed.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -18,7 +31,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 		return (0);
-	fd = open(filename, O_RDONLY);
+	open_file(filename);
 	if (fd == -1)
 	{
 		free(buf);
