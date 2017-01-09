@@ -11,9 +11,12 @@ int sum_dlistint(dlistint_t *head)
 	dlistint_t *current;
 	int sum;
 
+	sum = 0;
 	if (head == NULL)
 		return (0);
 	current = head;
+	sum += current->n;
+	
 	while (current->next != NULL)
 	{
 		current = current->next;
