@@ -23,10 +23,13 @@ dlistint_t *insert_dnodeint_at_idx(dlistint_t **h, unsigned int idx, int n)
 		*h = node_ins;
 		return (node_ins);
 	}
-	if (idx != 0 && *h == NULL)
+	if (*h == NULL)
 	{
+		if (idx != 0)
+		return (NULL);
+		
 		*h = node_ins;
-		node_ins->next = NULL;
+		node_ins->next =NULL;
 		node_ins->prev = NULL;
 		return (node_ins);
 	}
