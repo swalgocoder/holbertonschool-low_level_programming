@@ -1,65 +1,54 @@
 #include "lists.h"
 /**
- *insert_dnodeint_at_idx -  get the indexed node of a dlistint_t list
- *@head: pointer to head pointer of dlistint_t
- *@index: integer
- *Return: poiner to indexed node
+ *insert_dnodeint_at_idx - adds a node to the doubly linked list
+ *@h: reference to the beginning of the linked list
+ *@idx: The indexed node 2 be added
+ *@n: data 2 be added to the new node
+ *Return: doubly linked list
  */
 dlistint_t *insert_dnodeint_at_idx(dlistint_t **h, unsigned int idx, int n)
 {
-  dlistint_t *current, *pre, *new_node;
-	unsigned int count;
+	dlistint_t *head_b, *head_a, *node_ins; unsigned int i;
 
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
+	node_ins = malloc(sizeof(dlistint_t));
+	if (node_ins == NULL)
 		return (NULL);
-	new_node->n = n;
-	
-	if (head == NULL)
-		return (0);
+	node_ins->n = n;
 
-	count = 1;
-	while (current = head && count < index)
+	node_ins->prev = NULL; head_b = *h; head_a = *h;
+	if (idx == 0)
 	{
-		current = current->next;
-		pre = current;
-		count += 1;
+		head_b->prev = node_ins;
+		node_ins->next = *h;
+		*h = node_ins;
+		return (node_ins);
 	}
+	if (idx != 0 && *h == NULL)
+	{
+		*h = node_ins;
+		node_ins->next = NULL;
+		node_ins->prev = NULL;
+		return (node_ins);
+	}
+	node_ins->prev = NULL;
+	head_b = *h;
+	head_a = *h;
 
-	if (idx == 0 && current != NULL)
-	{
-		*h = new_node;
-		new_node->prec = NULL:
-		new_node->next = current;
-		return (new_node);
-	}
-	if (idx == 1 && current != NULL)
-	{
-		pre = *h;
-		current = *h)->next;
-		new_node->prev = pre:
-		new_node->next = current;
-		pre->next = new_node;
-		current->prev = new_node;
-		return (new_node);
-
-	}
-	if (count == idx && current == NULL)
-	{
-		if (pre != NULL)
-			new_node->prev = pre;
-			new_node->next = NULL;
-			pre->next = new_node;
-			return (NULL);
-	}
-	if (count != idx && current == NULL)
-		return (NULL);
-	pre = current;
-	current = current->next;
-	new_node->prev = pre;
-	new_node->next = current;
-	pre->next = new_code;
-	current->prev= new_code;
-
-	return (new_node);
+		for (i = 0; i <= idx && head_a != NULL; i++)
+		{
+			head_b = head_a->next;
+			if (i == idx - 1)
+			{
+				head_a->next = node_ins; node_ins->prev = head_a;
+				if (head_b == NULL)
+					node_ins->next = NULL;
+				else
+				{
+					node_ins->next = head_b; head_b->prev = node_ins;
+				}
+				return (node_ins);
+			}
+			head_a = head_a->next;
+		}
+	return (NULL);
 }
