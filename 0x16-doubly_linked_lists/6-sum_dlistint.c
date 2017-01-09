@@ -4,8 +4,6 @@
  *@head: pointer to head pointer of dlistint_t
  *Return: sum
  */
-
-
 int sum_dlistint(dlistint_t *head)
 {
 	dlistint_t *current;
@@ -16,12 +14,10 @@ int sum_dlistint(dlistint_t *head)
 		return (0);
 	current = head;
 	sum += current->n;
-	
 	while (current->next != NULL)
 	{
 		current = current->next;
 		sum += current->n;
 	}
-
 	return (sum);
 }
