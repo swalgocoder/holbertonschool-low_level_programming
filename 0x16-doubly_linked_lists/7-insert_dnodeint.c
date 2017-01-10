@@ -28,8 +28,8 @@ dlistint_t *insert_dnodeint_at_idx(dlistint_t **head, unsigned int idx, int n)
 		return (new);
 	}
 	current = *head;
-	i = 0;
-	while (i < idx - 1)
+
+	for (i = 0; i < idx - 1; i++)
 	{
 		if (current->next == NULL)
 		{
@@ -37,7 +37,6 @@ dlistint_t *insert_dnodeint_at_idx(dlistint_t **head, unsigned int idx, int n)
 			return (NULL);
 		}
 		current = current->next;
-		i++;
 	}
 	if (i != (idx - 1))
 	{
