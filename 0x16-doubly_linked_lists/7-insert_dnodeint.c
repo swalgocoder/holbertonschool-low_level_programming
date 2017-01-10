@@ -1,50 +1,61 @@
 #include "lists.h"
 /**
- *insert_dnodeint_at_idx - Function that adds a node to the doubly linked list
- *@h: A double pointer holding reference to the beginning of the linked list
- *@idx: The index that the node should be added
- *@n: The number to be added to the new node
- *Return: The adjusted doubly linked list
+ *insert_dnodeint_at_idx - adds a node to the doubly linked list
+ *@h: reference to the beginning of the linked list
+ *@idx: The indexed node 2 be added
+ *@n: data 2 be added to the new node
+ *Return: doubly linked list
  */
 dlistint_t *insert_dnodeint_at_idx(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *head_b, *head_aft, *new; unsigned int i;
+	dlistint_t *head_b, *head_a, *node_ins; unsigned int i;
 
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	node_ins = malloc(sizeof(dlistint_t));
+	if (node_ins == NULL)
 		return (NULL);
-	new->n = n;
+	node_ins->n = n;
+
 	if (*h == NULL)
 	{
 		if (idx > 0)
 		{
-			free(new); return (NULL);
-		}
-		*h = new; new->next = NULL; new->prev = NULL; return (new);
+			free(node_ins);
+			return (NULL);
+		}	
+		*h = node_ins;
+		node_ins->next =NULL;
+		node_ins->prev = NULL;
+		return (node_ins);
 	}
-	new->prev = NULL; head_b = head_aft = *h;
+	node_ins->prev = NULL;
+	head_b = *h;
+	head_a = *h;
+	
 	if (idx == 0)
 	{
-		head_b->prev = new; new->next = *h; *h = new;
-		return (new);
+		head_b->prev = node_ins;
+		node_ins->next = *h;
+		*h = node_ins;
+		return (node_ins);
 	}
-	else if (idx != 0)
-	{
-		for (i = 0; i <= idx && head_aft != NULL; i++)
+	
+	if (idx > 0)
+	{	
+		for (i = 0; i <= idx && head_a != NULL; i++)
 		{
-			head_b = head_aft->next;
+			head_b = head_a->next;
 			if (i == idx - 1)
 			{
-				head_aft->next = new; new->prev = head_aft;
+				head_a->next = node_ins; node_ins->prev = head_a;
 				if (head_b == NULL)
-					new->next = NULL;
+					node_ins->next = NULL;
 				else
 				{
-					new->next = head_b; head_b->prev = new;
+					node_ins->next = head_b; head_b->prev = node_ins;
 				}
-				return (new);
+				return (node_ins);
 			}
-			head_aft = head_aft->next;
+			head_a = head_a->next;
 		}
 	}
 	return (NULL);
