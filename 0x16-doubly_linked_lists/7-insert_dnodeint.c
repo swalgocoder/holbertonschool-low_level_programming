@@ -1,52 +1,44 @@
 #include "lists.h"
 /**
- * insert_dnodeint_at_idx - inserts node at an indexed position
- * @head: ptr to head
- * @idx: indexed position to insert node
- * @n: int data of the node to be inserted
- * Return: ptr to new node
- */
-dlistint_t *insert_dnodeint_at_idx(dlistint_t **head, unsigned int idx, int n)
+  * insert_dnodeint_at_index - inserts a node at an index
+  * @h: double pointer to a linked list
+  * @idx: where to add the node
+  * @n: value of the node
+  * Return: pointer to the new node
+  */
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new, *current;
-	unsigned int i;
+	unsigned int idx_cp;
+	dlistint_t *tmp, *new;
 
-	if (!head)
-		return (NULL);
-	if (*head == NULL && idx != 0)
-		return (NULL);
 	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	if (!new)
 		return (NULL);
 	new->n = n;
-	new->next = NULL, new->prev = NULL;
-	if (idx == 0)
+	idx_cp = idx;
+	tmp = *h;
+	if (!tmp)
 	{
-		new->next = *head;
 		new->prev = NULL;
-		*head = new;
+		new->next = NULL;
 		return (new);
 	}
-	current = *head;
+	if (idx == 0)
+	{
+		new->prev = NULL;
+		new->next = tmp;
+		tmp->prev = new;
+		*h = new;
+		return (new);
+	}
+	for ( ; idx > 1 && tmp->next; idx--)
+		tmp = tmp->next;
 
-	for (i = 0; i < idx - 1; i++)
-	{
-		if (current->next == NULL)
-		{
-			free(new);
-			return (NULL);
-		}
-		current = current->next;
-	}
-	if (i != (idx - 1))
-	{
-		free(new);
+	if (idx_cp > idx && !tmp->next)
 		return (NULL);
-	}
-	new->next = current->next;
-	current->next = new;
-	new->prev = current;
-	if (new->next)
-		(new->next)->prev = new;
+
+	new->prev = tmp;
+	new->next = tmp->next ? tmp->next : NULL;
+	tmp->next = tmp->next && idx > 1 ? NULL : new;
 	return (new);
 }
