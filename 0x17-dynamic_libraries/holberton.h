@@ -1,7 +1,5 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
-#include <stdio.h>
-
+#ifndef DYN_LIB
+#define DYN_LIB
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
