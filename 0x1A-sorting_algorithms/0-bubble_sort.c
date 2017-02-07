@@ -2,6 +2,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+void swap(int *xp, int *yp);
+
 void bubble_sort(int *array, size_t size);
 
 int main(void)
@@ -16,6 +18,12 @@ int main(void)
 }
   
 
+void swap(int *xp, int *yp)
+{
+  int temp = *xp;
+  *xp = *yp;
+  *yp = temp;
+}
 
 
 void bubble_sort(int *array, size_t size)
@@ -37,9 +45,8 @@ void bubble_sort(int *array, size_t size)
     {
       if (array[j] > array[j + 1])
       {
-	  temp = array[j];
-	  array[j] = array[j + 1];
-	  array[j + 1] = temp;
+      	swap(&array[j], &array[j + 1]);
+
       } 
     }	  
   }
