@@ -2,7 +2,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-void bubble_sort(int [], size_t size);
+void bubble_sort(int *array, size_t size);
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
 
 
 
-void bubble_sort(int array[], size_t size)
+void bubble_sort(int *array, size_t size)
 {
   size_t i, j, k, temp;
   
