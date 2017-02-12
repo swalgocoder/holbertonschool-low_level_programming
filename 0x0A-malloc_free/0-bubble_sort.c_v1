@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <simio.h>
+
+void swap(int *xp, int *yp)
+{
+  int temp = *xp;
+  *xp = *yp;
+  *yp = temp;
+}
+
+void bubble_sort(int *array, size_t size)
+{
+  int i, j;
+  
+  for (i = 0; i < n - 1; i++)
+    //* n -1 not to get out of index*//
+    for (j = 0; j < n - i - 1; j++) //*last i elements are already in place*//
+      if (array[j] > array[j + 1]
+	  swap
+
+
+
+
+}

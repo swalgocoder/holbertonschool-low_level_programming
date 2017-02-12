@@ -1,0 +1,41 @@
+#include "lists.h"
+/**
+ *get_dnodeint_at_index -  get the indexed node of a dlistint_t list
+ *@head: pointer to head pointer of dlistint_t
+ *@index: integer
+ *Return: poiner to indexed node
+ */
+dlistint_t *insert_dnodeint_at_idx(dlistint_t **h, unsigned int idx, int n)
+{
+  dlistint_t *current, *pre, *new_node;
+	unsigned int count;
+
+	new_node = malloc(sizeof(dlistint_t));
+	if (new_node == NULL)
+		return (NULL);
+	new_node->n = n;
+	
+	if (head == NULL)
+		return (0);
+	current = head;
+	count = 1;
+	while (current->next != NULL && count < index)
+	{
+		current = current->next;
+		prev = current;
+		count += 1;
+	}
+
+	if (idx == 0)
+	{
+		*h = new_node;
+		new-
+		new_node->next = current;
+		pre->next = new_node;
+	}
+	if (count != index)
+		return (NULL);
+	new_node->n = n;
+	new_node->next = current
+	return (current);
+}
