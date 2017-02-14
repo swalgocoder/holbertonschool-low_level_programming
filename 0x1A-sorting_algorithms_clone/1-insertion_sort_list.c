@@ -10,10 +10,9 @@ void insertion_sort_list(listint_t **list)
 	tmp_head = *list; /**@head represents a linked list **/ 
 	query = (*list)->next;
 
-	if (tmp_head->next == NULL) /** there is only one element in list**/
-	  return;
-	
-	while (query)
+	/**if tmp_head-> == NULL: there is only one element in list**/
+		
+	while (query && tmp_head->next)
 	{
 	  if (query->n < query->prev->n) /**comparison starts**/
 		{
