@@ -9,18 +9,18 @@ void insertion_sort_list(listint_t **list)
 
         int n;
     	listint_t *cur, *ptr,*tmp;
-    	cur = *list;
-    	if (cur->next==NULL)
+    	cur = *list; /* cur: temp head representing the list to be searched */
+    	if (cur->next==NULL)   /*there is only one element in list*/
     		return;
     	
     	cur=cur->next;
-    	while(cur!=NULL)
+    	while(cur!=NULL)  /*reaching the last node*/
     	{
     		n=0;
     		ptr=cur;
     		tmp=cur->prev;
     		cur=cur->next;
-    		while (tmp!=NULL && tmp->n>ptr->n)
+    		while (tmp!=NULL && tmp->n>ptr->n) /*comparision starts*/
     		{
     			n++;
     			tmp=tmp->prev;
@@ -43,7 +43,7 @@ void insertion_sort_list(listint_t **list)
     				ptr->next->prev=ptr;
     				*list=ptr;
     			}
-    			else  /* currently compared node lies in between somewhere in sorted list*/
+    			else  /* currently compared & swapped node lies in between somewhere in sorted list*/
     			{
     				tmp=tmp->next;
     				tmp->prev->next=ptr;
