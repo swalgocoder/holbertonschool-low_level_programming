@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdbool.h>
 /**
  * insertion_sort_list - insertion sort
  * @list: linked list of listint_t list
@@ -6,6 +7,7 @@
 void insertion_sort_list(listint_t **list)
 {
   listint_t *query, *tmp_head, *tmp, *prev_query;
+
 
 	tmp_head = *list; /**@head represents a linked list **/ 
 	query = (*list)->next;
